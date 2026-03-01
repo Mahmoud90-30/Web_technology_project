@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>signup</title>
+</head>
+<body>
+    <form>
+        <div class="sign_up">
+            <div class="User_name">
+                <label>Username</label>
+                <input type="text" required placeholder="Username" name="username"> 
+            </div>
+
+            <br>
+
+            <div class="Email">
+                <label>Email</label>
+                <input type="email" required placeholder="write a valid Email" name="email">
+            </div>
+
+            <br>
+
+            <div class="password">
+                <label>Password</label>
+                <input type="password" id="password" name="password" required placeholder="Complex password" minlength="8">
+            </div>
+            
+            <br>
+
+            <div class="confirm_password">
+                <label>Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm password" minlength="8">
+            </div>
+
+            <br>
+
+            <div class="user_role">
+                <label>Account Type:</label>
+                    <select class="Account_Type" required>
+                        <option disabled selected>Select your role</option> 
+                        <option>Admin</option>
+                        <option>User</option>
+                    </select>
+            </div>
+
+            <br>
+
+            <div class="Create_account">
+                <button type="submit">Create Account</button>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
