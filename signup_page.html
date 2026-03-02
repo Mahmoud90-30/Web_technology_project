@@ -4,54 +4,65 @@
     <title>signup</title>
 </head>
 <body>
+    <center>
+
     <form method="post">
-        <div class="sign_up">
-            <div class="User_name">
-                <label>Username</label>
-                <input type="text" required placeholder="Username" name="username"> 
-            </div>
 
-            <br>
+        <h2>Create Account</h2>
 
-            <div class="Email">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="write a valid Email" required>
-            </div>
-
-            <br>
-
-            <div class="password">
-                <label>Password</label>
-                <input type="password" name="password" required placeholder="Complex password" minlength="8">
-            </div>
-            
-            <br>
-
-            <div class="confirm_password">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" required placeholder="Confirm password" minlength="8">
-            </div>
-
-            <br>
-
-            <div class="user_role">
-                <label>Account Type:</label>
-                    <select class="Account_Type" required>
-                        <option disabled selected>Select your role</option> 
-                        <option>Admin</option>
-                        <option>User</option>
-                    </select>
-            </div>
-
-            <br>
-
-            <div class="Create_account">
-                <button type="submit">Create Account</button>
-            </div>
-
+        <div>
+            <label>Username</label>
+            <input type="text" name="username"  placeholder="Username"  size="30">
         </div>
+
+        <br><br>
+
+        <div>
+            <label>Email</label>
+            <input type="email"  name="email"  placeholder="Write a valid Email" size="30">
+        </div>
+
+        <br><br>
+
+        <div>
+            <label>Password</label>
+            <input type="password" name="password"  placeholder="Complex password"  size="30">
+        </div>
+        
+        <br><br>
+
+        <div>
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" placeholder="Confirm password" size="30">
+        </div>
+
+        <br><br>
+
+        <div>
+            <label>Account Type:</label>
+            <select required>
+                <option disabled selected>Select your role</option> 
+                <option>Admin</option>
+                <option>User</option>
+            </select>
+        </div>
+        <br><br>
+        <div>
+            <button type="submit" style="width:300px; height:30px;">
+                Create Account
+            </button>
+        </div>
+        <br>
+        <div>
+            <a href="login.html">Login here</a>
+        </div>
+
     </form>
+
+</center>
 </body>
 
 </html>
+
+
 
