@@ -3,43 +3,44 @@
 <head>
     <title>signup</title>
 </head>
-<body>
+<body style="background-color:#eaf4f4; font-family:Arial, sans-serif;">
+
     <center>
 
     <form method="post">
 
-        <h2>Create Account</h2>
+        <h2 style="color:#385f86; letter-spacing:1px;">Create Account</h2>
 
         <div>
-            <label>Username</label>
+            <label style="color:#3c6791; font-weight:bold;">Username</label>
             <input type="text" name="username"  placeholder="Username"  size="30">
         </div>
 
         <br><br>
 
         <div>
-            <label>Email</label>
+            <label style="color:#3d6791; font-weight:bold;">Email</label>
             <input type="email"  name="email"  placeholder="Write a valid Email" size="30">
         </div>
 
         <br><br>
 
         <div>
-            <label>Password</label>
+            <label style="color:#3f6a96; font-weight:bold;">Password</label>
             <input type="password" name="password"  placeholder="Complex password"  size="30">
         </div>
         
         <br><br>
 
         <div>
-            <label>Confirm Password</label>
+            <label style="color:#3e6fa0; font-weight:bold;">Confirm Password</label>
             <input type="password" name="confirm_password" placeholder="Confirm password" size="30">
         </div>
 
         <br><br>
 
         <div>
-            <label>Account Type:</label>
+            <label style="color:#3d6791; font-weight:bold;">Account Type:</label>
             <select required>
                 <option disabled selected>Select your role</option> 
                 <option>Admin</option>
@@ -48,21 +49,28 @@
         </div>
         <br><br>
         <div>
-            <button type="submit" style="width:300px; height:30px;">
+            <button type="submit" style="width:300px; height:30px; background-color:#333358;color:white; border:none; border-radius:5px;">
                 Create Account
             </button>
         </div>
         <br>
         <div>
-            <a href="login.html">Login here</a>
+            <a href="login.html" style="color:#2980b9; text-decoration:none; font-weight:bold;">
+                Login here
+            </a>
         </div>
 
     </form>
 
+
+<div style="position: absolute; top: 15px; left: 15px;">
+    <a href="Home page.html" 
+       style="background-color:#347fbd; color:rgb(171, 226, 226); padding:5px 10px; ">
+        Home
+    </a>
+</div>
+
 </center>
 </body>
-
 </html>
-
-
 
