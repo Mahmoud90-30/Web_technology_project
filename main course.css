@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#f3d9a5, #e9c98a);
+}
+ center h1 {
+    color: rgb(184, 73, 8);
+    margin: 10px;
+       color: rgb(197, 80, 8);
+    margin: 10px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+}
+
+nav {
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(18, 104, 5);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: black;
+}
+
+img {
+    width: 10%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.main-course-links  {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 25px;
+    margin: 40px auto;
+}
+
+
+.main-course-links p {
+    text-align: center;
+    padding: 10px;
+}
+
+.main-course-links img {
+    width: 100%;     
+    height: 150px;   
+    object-fit: cover; 
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.main-course-links img:hover { 
+    transform: scale(1.05);
+}
+.main-course-links a {
+     display: block;
+    margin-top: 8px;
+    text-decoration: none;
+    color: rgb(18, 104, 5);
+    font-weight: bolder;
+}
+
+.main-course-links a:hover{
+     color: rgb(9, 193, 70);
+}
+
+.Warak3nab img,
+.Molokhia img,
+.koshari img,
+.bshamel img,
+.Shrimp img,
+.Pizza img,
+.steak img,
+.shawerma img,
+.creamychickenpasta img,
+.redsaucepasta img {
+    float: right;
+    width: 400px;
+    height: 400px;
+    margin-top: 0px;
+    margin-bottom: 70px;
+    border-radius: 100%;
+}
+.Warak3nab img:hover,
+.Molokhia img:hover,
+.koshari img:hover,
+.bshamel img:hover,
+.Shrimp img:hover,
+.Pizza img:hover,
+.steak img:hover,
+.shawerma img:hover,
+.creamychickenpasta img:hover,
+.redsaucepasta img:hover {
+border-radius: 40px;
+}
+
+ 
+.Warak3nab h1,
+.Molokhia h1,
+.koshari h1,
+.bshamel h1,
+.Shrimp h1,
+.Pizza h1,
+.steak h1,
+.shawerma h1,
+.creamychickenpasta h1,
+.redsaucepasta h1{
+    color: rgb(114, 54, 13) ;
+}
+.Warak3nab h2,
+.Molokhia h2,
+.koshari h2,
+.bshamel h2,
+.Shrimp h2,
+.Pizza h2,
+.steak h2,
+.shawerma h2,
+.creamychickenpasta h2,
+.redsaucepasta h2{
+    color: rgb(146, 27, 27) ;
+    margin: 20px;
+    padding-left: 10px;
+     font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style: oblique;
+}
+.Warak3nab h4,
+.Molokhia h4,
+.koshari h4,
+.bshamel h4,
+.Shrimp h4,
+.Pizza h4,
+.steak h4,
+.shawerma h4,
+.creamychickenpasta h4,
+.redsaucepasta h4{
+    color: rgb(165, 32, 32) ;
+    margin: 20px;
+    padding-left: 10px;
+     font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style: oblique;
+}
+
+.Warak3nab ul,
+.Molokhia ul,
+.koshari ul,
+.bshamel ul,
+.Shrimp ul,
+.Pizza ul,
+.steak ul,
+.shawerma ul,
+.creamychickenpasta ul,
+.redsaucepasta ul{
+    color: rgb(141, 44, 14) ;
+    margin: 20px;
+    padding-left: 30px;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style: oblique;
+    list-style-type: square;
+}
+.Warak3nab ol,
+.Molokhia ol,
+.koshari ol,
+.bshamel ol,
+.Shrimp ol,
+.Pizza ol,
+.steak ol,
+.shawerma ol,
+.creamychickenpasta ol,
+.redsaucepasta ol{
+    color: rgb(70, 23, 9) ;
+    margin: 20px;
+    padding-left: 80px;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style: oblique;
+}
+
+.Warak3nab p,
+.Molokhia p,
+.koshari p,
+.bshamel p,
+.Shrimp p,
+.Pizza p,
+.steak p,
+.shawermap p,
+.creamychickenpasta p,
+.redsaucepasta p{
+    color: rgb(122, 35, 13) ;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style: oblique;
+}
+hr {
+    border: none;
+    height: 2px;
+    background-color: rgb(212,113, 6);
+    margin: 20px 0;
+}
+.Temperature{
+    width: 20%;
+    border-collapse: collapse ;
+    margin: 40px;
+}
+.Temperature th , .Temperature td {
+    border: 1px solid rgb(131, 66, 20);
+    padding: 6px;
+    text-align: center;
+}
+.Temperature tr:hover{
+    background-color: rgb(175, 78, 48);
+
+}
+
+.Temperature th{
+    background-color: rgb(172, 54, 24);
+    font-weight: bold;
+}
