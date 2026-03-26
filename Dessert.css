@@ -1,0 +1,118 @@
+body{
+    background-color: #f8ebe6;
+}
+h1{
+    color: #e83636;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+div h2{
+    color: #a71717;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+.navbar{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    text-align: center;
+}
+.navbar a{
+    color: #e83636;
+    text-decoration: none;
+    margin: 50px;
+}
+.navbar a:hover{
+    color:rgb(148, 5, 5);
+    text-decoration: underline;
+}
+.recipe-links{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+    padding: 10px;
+}
+.recipe-links p{
+    background: #eed6ce;
+    border-radius: 15px;
+    padding: 10px;
+    text-align:center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+.recipe-links p:hover{
+    transform:translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.recipe-links img{
+    width: 100%;
+    height: 180px;
+    object-fit:cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.recipe-links a{
+    display: block;
+    text-decoration: none;
+    color: #5a2d2d;
+    font-weight: bold;
+    font-size: 15px;
+}
+.recipe-links a:hover{
+    color: #d14f4f;
+}
+.recipe-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.recipe-container img {
+    width: 400px;
+    height: fit-content;
+    border-radius: 50px;
+    padding: 2%;
+}
+.recipe{
+    font-size: 20px;
+    flex: 1;
+}
+ul li{
+    list-style: square;
+}
+ol ul li{
+    list-style-type:disc;
+}
+p:last-of-type{
+    font-family:system-ui,'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif; 
+    font-size: 20px;
+    font-style: oblique;
+    line-height: 1.5;
+    color: #80071d;
+}
+@media (max-width: 768px) {
+    
+    .navbar {
+        font-size: 18px;
+    }
+    .navbar a {
+        margin: 3px;
+        display: inline-block;
+        padding: 3px;
+    }
+    .recipe-links {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    /* make photo up like in phones and ingr,prep down photo*/
+    .recipe-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .recipe-container img {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .recipe {
+        padding: 15px;
+        font-size: 16px; 
+        text-align: left;
+    }
+}
