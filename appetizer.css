@@ -2,7 +2,34 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background: linear-gradient(#f3d9a5, #e9c98a);
 }
-
+.TopButton {
+    position: fixed;
+    bottom: 30px; /*space from down*/
+    right: 30px; 
+    background-color: #d14f4f;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.TopButton a {
+    text-decoration: none;
+    color: white;
+}
+.TopButton a:hover {
+    color: rgb(60, 6, 6);
+}
+.TopButton.show {
+    opacity: 1;
+    visibility: visible;
+    transform:translateY(0px);
+}
+.TopButton:hover {
+    background-color: #e83636;
+    transform: translateY(-5px);
+}
 h1 {
     color: rgb(197, 80, 8);
     margin: 10px;
