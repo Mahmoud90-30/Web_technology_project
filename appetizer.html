@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="appetizer.css">
 
 <body>
-    <h1><b><i>🎉 Appetizers Recipes 🎉</i></b></h1>
+    <h1 id="top"><b><i>🎉 Appetizers Recipes 🎉</i></b></h1>
     <hr>
     <h4 style="color: rgb(99, 51, 6); background-color: #f6b362; border-radius: 50px; padding: 10px; margin-left: auto;margin-right: auto;">
         <marquee behavior="scroll" direction="left" scrollamount="10">
@@ -327,7 +327,21 @@
     <br>
 
     <hr>
+    <div id="topBtn" class="TopButton">
+        <a href="#top">Return To Top</a>
+    </div>
+    <script>
+        let btn = document.getElementById("topBtn");
 
+        window.onscroll = function () {
+            if (window.scrollY > 650) {
+                btn.classList.add("show");
+            }
+            else {
+                btn.classList.remove("show");
+            }
+        };
+    </script>
     <script src="favourites.js"></script>
 </body>
 

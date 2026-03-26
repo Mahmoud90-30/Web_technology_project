@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1><b><i>🎉Dessert Recipes🎉</i></b></h1>
+    <h1 id="top"><b><i>🎉Dessert Recipes🎉</i></b></h1>
 
     <div class="navbar">
         <hr>
@@ -859,6 +859,21 @@
         </div>
     </div>
     <hr>
+    <div id="topBtn" class="TopButton">
+        <a href="#top">Return To Top</a>
+    </div>
+    <script>
+        let btn = document.getElementById("topBtn");
+
+        window.onscroll = function () {
+            if (window.scrollY > 650) {
+                btn.classList.add("show");
+            }
+            else {
+                btn.classList.remove("show");
+            }
+        };
+    </script>
     <script src="favourites.js"></script>
 </body>
 
