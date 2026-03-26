@@ -6,6 +6,29 @@ h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
 }
+
+.heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 26px; 
+  color: #904319; 
+  transition: transform 0.2s, color 0.2s;
+  margin: 10px;
+}
+
+
+.heart-btn:hover {
+  transform: scale(1.2); 
+  color: #e74c3c; 
+}
+
+
+.heart-btn.active {
+  color: #e74c3c;
+}
+
+
 div h2{
     color: #a71717;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
