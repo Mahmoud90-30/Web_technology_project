@@ -1,11 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(#f3d9a5, #e9c98a);
+    background: rgb(170, 220, 195);
 }
  center h1 {
-    color: rgb(184, 73, 8);
+    color: rgb(9, 95, 110);
     margin: 10px;
-       color: rgb(197, 80, 8);
     margin: 10px;
     padding-top: 30px;
     padding-bottom: 10px;
@@ -72,7 +71,7 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    background-color: rgb(18, 104, 5);
+    background-color: rgb(40, 70, 90);
     padding: 8px 12px;
     border-radius: 10px;
     margin: 5px;
@@ -119,12 +118,12 @@ img {
      display: block;
     margin-top: 8px;
     text-decoration: none;
-    color: rgb(18, 104, 5);
+    color: rgb(30, 90, 60);
     font-weight: bolder;
 }
 
 .main-course-links a:hover{
-     color: rgb(9, 193, 70);
+     color:rgb(50, 50, 50);
 }
 
 .Warak3nab img,
@@ -168,7 +167,7 @@ border-radius: 40px;
 .shawerma h1,
 .creamychickenpasta h1,
 .redsaucepasta h1{
-    color: rgb(114, 54, 13) ;
+    color: rgb(101, 67, 33) ;
 }
 .Warak3nab h2,
 .Molokhia h2,
@@ -198,7 +197,7 @@ border-radius: 40px;
 .shawerma h4,
 .creamychickenpasta h4,
 .redsaucepasta h4{
-    color: rgb(165, 32, 32) ;
+    color: rgb(128, 0, 32);
     margin: 20px;
     padding-left: 10px;
      font-size: xx-large;
@@ -217,7 +216,7 @@ border-radius: 40px;
 .shawerma ul,
 .creamychickenpasta ul,
 .redsaucepasta ul{
-    color: rgb(141, 44, 14) ;
+    color:rgb(25, 40, 65);
     margin: 20px;
     padding-left: 30px;
     font-size: large;
@@ -236,7 +235,7 @@ border-radius: 40px;
 .shawerma ol,
 .creamychickenpasta ol,
 .redsaucepasta ol{
-    color: rgb(70, 23, 9) ;
+    color: rgb(128, 0, 32);
     margin: 20px;
     padding-left: 80px;
     font-size: large;
@@ -264,7 +263,7 @@ border-radius: 40px;
 hr {
     border: none;
     height: 2px;
-    background-color: rgb(212,113, 6);
+    background-color: rgb(35, 146, 122);
     margin: 20px 0;
 }
 .Temperature{
