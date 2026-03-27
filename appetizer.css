@@ -1,12 +1,14 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: linear-gradient(#f3d9a5, #e9c98a);
+    background:rgb(243, 229, 247);
 }
+
+/*-------------------------------------------------Return to top----------------------------------------------------*/
 .TopButton {
     position: fixed;
     bottom: 30px; /*space from down*/
     right: 30px; 
-    background-color: #d14f4f;
+    background-color: rgb(138, 15, 219);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -18,20 +20,19 @@ body {
     text-decoration: none;
     color: white;
 }
-.TopButton a:hover {
-    color: rgb(60, 6, 6);
-}
+
 .TopButton.show {
     opacity: 1;
     visibility: visible;
     transform:translateY(0px);
 }
 .TopButton:hover {
-    background-color: #e83636;
+    background-color: rgb(94, 9, 150);
     transform: translateY(-5px);
 }
+
 h1 {
-    color: rgb(197, 80, 8);
+    color: rgb(110, 11, 164);
     margin: 10px;
     padding-top: 30px;
     padding-bottom: 10px;
@@ -64,7 +65,7 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    background-color: rgb(18, 104, 5);
+    background-color:rgb(138, 15, 219);
     padding: 8px 12px;
     border-radius: 10px;
     margin: 5px;
@@ -72,11 +73,13 @@ nav a {
     transition: 0.3s;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: larger;
+    transition: 0.3s;
 
 }
 
 nav a:hover {
-    background-color: rgb(102, 211, 13);
+    background-color: rgb(93, 3, 153);
+    transform: scale(1.2);
 }
 
 
@@ -112,22 +115,27 @@ nav a:hover {
     display: block;
     margin-top: 8px;
     text-decoration: none;
-    color: rgb(18, 104, 5);
+    color: rgb(110, 11, 164);
     font-weight: bolder;
     transition: 0.3s;
+    background-color: #d2acf6;
+    border-radius: 10px;
 }
 
 .appetizer a:hover {
-    color: rgb(9, 193, 70);
+    color: rgb(247, 245, 249);
     transform: scale(1.05);
+    background-color: #7930bc;
+    border-radius: 40px;
 }
+/*-------------------------------------------------heart button--------------------------------------------------------*/
 
 .heart-btn {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 26px; 
-  color: #904319; 
+  color: rgb(124, 9, 186); 
   transition: transform 0.2s, color 0.2s;
   margin: 10px;
 }
@@ -135,7 +143,7 @@ nav a:hover {
 
 .heart-btn:hover {
   transform: scale(1.2); 
-  color: #e74c3c; 
+  color: rgb(84, 4, 127); 
 }
 
 
@@ -183,7 +191,7 @@ nav a:hover {
 #spring-rolls h2 {
     margin: 20px;
     padding-left: 10px;
-    color: #d14f04;
+    color: rgb(110, 11, 164);
     font-size: xx-large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bolder;
@@ -200,7 +208,7 @@ nav a:hover {
 #spring-rolls h3 {
     margin: 20px;
     padding-left: 40px;
-    color: #f37a09;
+    color: rgb(155, 9, 234);
     font-size: x-large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bolder;
@@ -215,7 +223,7 @@ nav a:hover {
 #garlic-bread ul,
 #cheese-sticks ul,
 #spring-rolls ul {
-    color: #65360a;
+    color: rgb(61, 15, 86);
     margin: 20px;
     padding-left: 80px;
     font-size: large;
@@ -233,7 +241,7 @@ nav a:hover {
 #garlic-bread ol,
 #cheese-sticks ol,
 #spring-rolls ol {
-    color: #65360a;
+    color: rgb(61, 15, 86);
     margin: 20px;
     padding-left: 80px;
     font-size: large;
@@ -247,6 +255,6 @@ nav a:hover {
 hr {
     border: none;
     height: 2px;
-    background-color: #d47106;
+    background-color: rgb(138, 15, 219);
     margin: 20px 0;
 }
