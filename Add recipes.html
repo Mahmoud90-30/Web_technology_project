@@ -1,74 +1,86 @@
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale= 0.1">
     <title>Add recipes</title>
+    <link rel="stylesheet" href="Add_recipes.css">
 </head>
 
 <body>
 
-<center>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="main course.html">main course</a>
+        <a href="appetizer.html">Appetizers</a>
+        <a href="Desserts.html">Dessert</a>
 
-<font face="Arial" color="darkred">
-<h1><i>Add a Recipe</i></h1>
-</font>
+    </nav>
 
-<form>
+<h1 class="page-title">
+    <span>Kitchen Chaos Club</span>
+    <br>
+    <i>Add a Recipe</i></h1>
+    
+
+
+<div class="form-wrapper">
 
 <!--Category-->
-<font face="Verdana" size="4">
+<div class="form-group">
 <label><b>Choose the category of your recipe</b></label>
-</font>
-
-<br><br>
-
-<select name="Category">
-    <option>Main Course</option>
-    <option>Desserts</option>
-    <option>Appetizer</option>
+<select id="Category">
+    <option value="main-course">Main Course</option>
+    <option value="desserts">Desserts</option>
+    <option value="appetizer">Appetizer</option>
 </select>
+</div>
 
 <br><br>
 
 
 <!--Recipe Name -->
-<font face="Verdana" size="4">
-<label><b>Recipe Name :</b></label>
-</font>
+<div>
+<label><b>🍽️ Recipe Name :</b></label>
+<input type="text" id="recipe-name" placeholder="e.g. Grilled Chicken">
+</div>
 
-<br><br>
-
-<input type="text" name="recipe_name">
-
-<br><br>
-
-
-<!--Recipe Image-->
-<font face="Verdana" size="4">
-<label><b>Upload the recipe image</b></label>
-</font>
-
-<br><br>
-
-<input type="file" name="recipe_image">
 
 <br><br>
 
 
-<!--Ingredients and Steps-->
-<font face="Verdana" size="4">
-<label><b>Recipe ingredients and steps :</b></label>
-</font>
+   <!-- Image -->
+    <div class="form-group">
+        <label>📷 Recipe Image</label>
+        <label class="file-label" for="recipe-image">
+            <span class="file-icon">📷</span>
+            <span>Click to upload an image</span>
+        </label>
+        <input type="file" id="recipe-image" accept="image/*">
+        <img id="img-preview" src="" alt="preview">
+    </div>
+ 
+    <hr class="form-divider">
 
-<br><br>
+  <!-- Ingredients -->
+    <div class="form-group">
+        <label>📝 Ingredients <span class="hint">(each ingredient on a new line)</span></label>
+        <textarea id="ingredients" placeholder="e.g.&#10;2 cups flour&#10;1 egg&#10;Salt to taste"></textarea>
+    </div>
+ 
+    <!-- Steps -->
+    <div class="form-group">
+        <label>➡️ Preparation Steps <span class="hint">(each step on a new line)</span></label>
+        <textarea id="steps" placeholder="e.g.&#10;Mix the flour and egg&#10;Add salt&#10;Bake for 30 minutes"></textarea>
+    </div>
+ 
+    <button class="submit-btn" onclick="addRecipe()">✅ Add Recipe</button>
+ 
+</div>
+ 
+<div id="add-toast"></div>
 
-<input type="text" name="recipe">
-
-<br><br>
-
-<input type="submit" value="Add Recipe">
-
-</form>
-
-</center>
+<script src="Add_recipes.js">
+</script>
 
 </body>
 </html>

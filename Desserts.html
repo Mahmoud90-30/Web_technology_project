@@ -875,6 +875,24 @@
         };
     </script>
     <script src="favourites.js"></script>
+
+    <div id="user-recipes-section"></div>
+    
+<script>
+(function() {
+    var key = 'kcc_added_dessert'; 
+    var saved = JSON.parse(localStorage.getItem(key) || '[]');
+    if (saved.length === 0) return;
+    var section = document.getElementById('user-recipes-section');
+    saved.forEach(function(recipe) {
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = recipe.html;
+        section.appendChild(wrapper);
+    });
+    if (typeof initHeartButtons === 'function') initHeartButtons();
+})();
+</script>
+
 </body>
 
 </html>
