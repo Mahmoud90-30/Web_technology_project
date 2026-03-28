@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(#f3d9a5, #e9c98a);
+    background: linear-gradient(135deg, hsl(215, 72%, 85%), hsl(195, 56%, 78%));
 }
 
 
@@ -17,7 +17,7 @@ h3 {
 
 h3 a {
     text-decoration: none;
-    background-color: #eeca93;
+    background-color: #adb2b7;
     color: rgb(66, 71, 71);
     padding: 8px 12px;
     border-radius: 8px;
@@ -54,7 +54,7 @@ nav a:hover {
 
 h2 {
     text-align: center;
-    color: rgb(221, 118, 9);
+    color: rgb(20, 36, 156);
 }
 
 h3 {
