@@ -270,3 +270,33 @@ input[type="file"] {
     h1.page-title { font-size: 1.8rem; }
 }
 
+body.theme-appetizer {
+    --page-bg:      rgb(243, 229, 247);
+    --accent:       rgb(138, 15, 219);
+    --accent-dark:  rgb(93, 3, 153);
+    --accent-light: #d2acf6;
+    --nav-bg:       rgb(138, 15, 219);
+    --nav-hover:    rgb(93, 3, 153);
+    --text-main:    rgb(61, 15, 86);
+    --text-head:    rgb(110, 11, 164);
+    --border:       #c89eee;
+    --card-bg:      #fff;
+    --shadow:       rgba(138, 15, 219, 0.13);
+    --stripe:       linear-gradient(90deg, rgb(110,11,164), rgb(138,15,219), rgb(110,11,164));
+}
+
+body.theme-main-course {
+    --page-bg:      rgb(170, 220, 195);
+    --accent:       rgb(40, 70, 90);
+    --accent-dark:  rgb(9, 95, 110);
+    --accent-light: #b8ddd0;
+    --nav-bg:       rgb(40, 70, 90);
+    --nav-hover:    #000;
+    --text-main:    rgb(25, 40, 65);
+    --text-head:    rgb(101, 67, 33);
+    --border:       #9acaaf;
+    --card-bg:      #fff;
+    --shadow:       rgba(35, 146, 122, 0.13);
+    --stripe:       linear-gradient(90deg, rgb(9,95,110), rgb(35,146,122), rgb(9,95,110));
+}
+
