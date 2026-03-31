@@ -14,7 +14,7 @@ body {
 }
 .TopButton {
     position: fixed;
-    bottom: 30px; /*space from down*/
+    bottom: 30px; /space from down/
     right: 30px; 
     background-color: #d14f4f;
     padding: 10px;
@@ -94,39 +94,46 @@ img {
 }
 .main-course-links  {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: center;
-    gap: 25px;
-    margin: 40px auto;
-}
-
-
-.main-course-links p {
-    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
     padding: 10px;
 }
 
-.main-course-links img {
-    width: 100%;     
-    height: 150px;   
-    object-fit: cover; 
-    border-radius: 10px;
+.main-course-links p {
+    background: #93d4cc;
+     border-radius: 15px;
+    padding: 10px;
+    text-align:center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 }
-
-.main-course-links img:hover { 
-    transform: scale(1.05);
+.main-course-links p:hover{
+    transform:translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.main-course-links img {
+     width: 100%;
+    height: 180px;
+    object-fit:cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
 .main-course-links a {
-     display: block;
-    margin-top: 8px;
+    display: block;
     text-decoration: none;
     color: rgb(30, 90, 60);
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3;
+
 }
 
 .main-course-links a:hover{
-     color:rgb(50, 50, 50);
+     transform: translateY(-10px);
+     color:rgb(24, 165, 158);
+
 }
 
 .Warak3nab img,
@@ -161,16 +168,7 @@ img {
 .redsaucepasta h1{
     color: rgb(101, 67, 33) ;
 }
-.Warak3nab h2,
-.Molokhia h2,
-.koshari h2,
-.bshamel h2,
-.Shrimp h2,
-.Pizza h2,
-.steak h2,
-.shawerma h2,
-.creamychickenpasta h2,
-.redsaucepasta h2{
+ h2{
     color: rgb(146, 27, 27) ;
     margin: 20px;
     padding-left: 10px;
@@ -198,16 +196,7 @@ img {
     font-style: oblique;
 }
 
-.Warak3nab ul,
-.Molokhia ul,
-.koshari ul,
-.bshamel ul,
-.Shrimp ul,
-.Pizza ul,
-.steak ul,
-.shawerma ul,
-.creamychickenpasta ul,
-.redsaucepasta ul{
+ ul{
     color:rgb(25, 40, 65);
     margin: 20px;
     padding-left: 30px;
@@ -217,16 +206,7 @@ img {
     font-style: oblique;
     list-style-type: square;
 }
-.Warak3nab ol,
-.Molokhia ol,
-.koshari ol,
-.bshamel ol,
-.Shrimp ol,
-.Pizza ol,
-.steak ol,
-.shawerma ol,
-.creamychickenpasta ol,
-.redsaucepasta ol{
+ol{
     color: rgb(128, 0, 32);
     margin: 20px;
     padding-left: 80px;
