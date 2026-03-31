@@ -8,53 +8,25 @@
    
 </head>
 <link rel="stylesheet" href="Home page.css">
-<body> 
-
-    <div>
-        <center>
-            <h1><i> Kitchen Chaos Club</i></h1>
-        </center>
-    <hr>
-<h3 >
-    <a href="login-signup.html">
-        Log in
-    </a>
-   &nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="login-signup.html">
-        Sign up
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="favorites.html">
-        My Favourite
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;
-   
-</h3>
-    </div>
-
-    <hr>
-
-    <div>
+<body>
+    <div class="top-bar">
+        <div class="page-name">Kitchen Chaos Club</div>
         <nav>
-            <a href="index.html">Home</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="main course.html">Main Course</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
-             <a href="appetizer.html">Appetizers</a> 
-           &nbsp;&nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Desserts.html">Desserts</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="index.html">Home</a>
+            <a href="main course.html">MainCourse</a>
+            <a href="appetizer.html">Appetizers</a>
+            <a href="Desserts.html">Desserts</a>
+            <a href="favorites.html">Favourite</a>
         </nav>
-        <hr>
+        <div class="links">
+            <a href="login-signup.html">Log in</a>
+            <a href="login-signup.html">Sign up</a>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder=" Search ... 🔍">
+            <div id="results"></div>
+        </div>
     </div>
-
 
 <p>
     <h2 ><u>ABOUT US</u></h2>
@@ -127,12 +99,63 @@
     </div>
     <br>
     <hr>
-    
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const recipes = [
+            { name: "Warek 3enab", link: "main course.html#warak" },
+            { name: "Molokhia", link: "main course.html#molokhia" },
+            { name: "koshari", link: "main course.html#koshari" },
+            { name: "Macaroni bechamel", link: "main course.html#bshamel" },
+            { name: "Shrimps", link: "main course.html#shrimp" },
+            { name: "Steak", link: "main course.html#steak" },
+            { name: "pizza", link: "main course.html#pizza" },
+            { name: "shawerma", link: "main course.html#shawerma" },
+            { name: "creamychickenpasta", link: "main course.html#creamychickenpasta" },
+            { name: "redsaucepasta", link: "main course.html#redsaucepasta" },
 
+            { name: "Chocolate cake", link: "Desserts.html#choco-cake" },
+            { name: "Cookies", link: "Desserts.html#cookie" },
+            { name: "Tiramisu", link: "Desserts.html#tiramisu" },
+            { name: "Donuts", link: "Desserts.html#donuts" },
+            { name: "strawberry-ice-cream", link: "Desserts.html#strawberry-ice-cream" },
+            { name: "Cinnamon rolls", link: "Desserts.html#cinnamon" },
+            { name: "Basbousa", link: "Desserts.html#Basbousa" },
+            { name: "Applepie", link: "Desserts.html#applepie" },
+            { name: "Cheesecake", link: "Desserts.html#Cheesecake" },
+            { name: "CrèmeCaramel", link: "Desserts.html#CrèmeCaramel" },
+
+            { name: "Caesar salad", link: "appetizer.html#caesar-salad" },
+            { name: "Greek salad", link: "appetizer.html#greek-salad" },
+            { name: "Sambosa", link: "appetizer.html#sambosa" },
+            { name: "Kobeba", link: "appetizer.html#kobeba" },
+            { name: "Garlic bread", link: "appetizer.html#garlic-bread" },
+            { name: "Cheese sticks", link: "appetizer.html#cheese-sticks" },
+            { name: "Spring rolls", link: "appetizer.html#spring-rolls" }
+        ];
+
+        const resultsBox = document.getElementById("results");
+        resultsBox.classList.add("results");
+        document.querySelector(".search-box").appendChild(resultsBox);
+
+        searchInput.addEventListener("keyup", function () {
+            let input = this.value.toLowerCase();
+            resultsBox.innerHTML = "";
+
+            if (input === "") return;
+
+            let filtered = recipes.filter(r => r.name.toLowerCase().includes(input));
+
+            filtered.forEach(r => {
+                let item = document.createElement("div");
+                item.innerHTML = `<a href="${r.link}">${r.name}</a>`;
+                resultsBox.appendChild(item);
+            });
+        });
+    </script>
 </body>
 
-
 </html>
+
 
 
 
