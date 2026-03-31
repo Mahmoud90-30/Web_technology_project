@@ -67,7 +67,6 @@ nav {
     text-align: center;
     padding: 10px;
 }
-
 nav a {
     text-decoration: none;
     color: white;
@@ -80,7 +79,8 @@ nav a {
 }
 
 nav a:hover {
-    background-color: black;
+    background-color: rgb(8, 95, 110);
+      transform: scale(1.2);
 }
 
 img {
@@ -141,20 +141,9 @@ img {
     height: 400px;
     margin-top: 0px;
     margin-bottom: 70px;
-    border-radius: 100%;
+
 }
-.Warak3nab img:hover,
-.Molokhia img:hover,
-.koshari img:hover,
-.bshamel img:hover,
-.Shrimp img:hover,
-.Pizza img:hover,
-.steak img:hover,
-.shawerma img:hover,
-.creamychickenpasta img:hover,
-.redsaucepasta img:hover {
-border-radius: 40px;
-}
+
 
  
 .Warak3nab h1,
