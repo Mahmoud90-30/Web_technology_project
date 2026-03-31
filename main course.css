@@ -76,6 +76,9 @@ nav a {
     margin: 5px;
     display: inline-block;
     transition: 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    transition: 0.3s;
 }
 
 nav a:hover {
