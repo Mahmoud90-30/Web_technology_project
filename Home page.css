@@ -9,7 +9,7 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     padding: 12px 25px;
     background: linear-gradient(135deg, #4d64f7, #617bff);
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
