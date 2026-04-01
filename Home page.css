@@ -37,7 +37,6 @@ body {
     color:#e9e8ed;
     background: linear-gradient(135deg, #1364a5, #0928a2);
     border-radius: 15px;
-    transform: translateX(20px);
 }
 .search-box{
     position: relative;
