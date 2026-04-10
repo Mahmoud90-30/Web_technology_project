@@ -1,7 +1,9 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background:rgb(243, 229, 247);
-}
+   font-family: Georgia, 'Times New Roman', Times, serif;
+    
+ background: linear-gradient(400deg, rgb(205, 224, 215), rgb(230, 206, 233),rgb(227, 136, 241));
+   
+  background-attachment: fixed;
 
 /*-------------------------------------------------Return to top----------------------------------------------------*/
 .TopButton {
