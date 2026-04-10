@@ -256,3 +256,11 @@ p:last-of-type{
     font-size: 12px;
     color: #aaa;
 }
+
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #e83636;
+    margin: 20px 0;
+}
