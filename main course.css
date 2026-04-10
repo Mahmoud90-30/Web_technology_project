@@ -1,6 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(#f3d9a5, #e9c98a);
+   
+      
+ 
+  background: linear-gradient(400deg,rgb(213, 202, 214),  rgb(204, 240, 221), rgb(149, 241, 194));
+  background-attachment: fixed;
+
 }
  center h1 {
     color: rgb(184, 73, 8);
