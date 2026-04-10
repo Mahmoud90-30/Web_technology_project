@@ -35,6 +35,8 @@ function addRecipe() {
     }
 }
 
+
+//save recipe
 function saveRecipe(category, name, imgBase64, ingredients, steps) {
     const ingredientsList = ingredients.split('\n')
         .filter(i => i.trim())
@@ -85,3 +87,69 @@ function showToast(msg) {
     clearTimeout(toast._timer);
     toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
 }
+
+// Build recipe HTML — identical structure to each page's cards
+function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
+ 
+    const ingredientsHTML = ingredients
+        .split('\n').filter(i => i.trim())
+        .map(i => `<li>${i.trim()}</li>`).join('');
+ 
+    const stepsHTML = steps
+        .split('\n').filter(s => s.trim())
+        .map(s => `<li>${s.trim()}</li>`).join('');
+ 
+    const heartBtn = `<button class="heart-btn">
+        <i class="fa-regular fa-heart"></i>
+    </button>`;
+ 
+    const imgTag = imgBase64
+        ? `<img src="${imgBase64}" alt="${name}">`
+        : '';
+         if (category === 'desserts') {
+        return `
+<div class="Choco">
+    <h1><i>${name} 🍴 ${heartBtn}</i></h1>
+    <div class="recipe-container">
+        ${imgTag}
+        <div class="recipe">
+            <h2><i>📝 Ingredients</i></h2>
+            <ul>${ingredientsHTML}</ul>
+            <h2><i>➡️ Preparation Steps</i></h2>
+            <ol>${stepsHTML}</ol>
+        </div>
+    </div>
+</div>`;
+    }
+
+      if (category === 'appetizer') {
+        return `
+<div id="user-${safeid(name)}">
+    <h2>${name} 🍴 ${heartBtn}</h2>
+    ${imgTag}
+    <h3>📝 Ingredients</h3>
+    <ul>${ingredientsHTML}</ul>
+    <h3>➡️ Preparation Steps</h3>
+    <ol>${stepsHTML}</ol>
+</div>`;
+    }
+
+      if (category === 'main-course') {
+        return `
+<div class="Warak3nab">
+    <h1><i>${name} 🍴 ${heartBtn}</i></h1>
+    ${imgTag}
+    <h2><i>📝 Ingredients</i></h2>
+    <ul>${ingredientsHTML}</ul>
+    <h2><i>➡️ Preparation Steps</i></h2>
+    <ol>${stepsHTML}</ol>
+</div>`;
+    }
+ 
+    return '';
+}
+ 
+function safeid(name) {
+    return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+

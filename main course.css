@@ -1,16 +1,18 @@
 body {
     font-family: Arial, sans-serif;
+
    
       
  
   background: linear-gradient(400deg,rgb(213, 202, 214),  rgb(204, 240, 221), rgb(149, 241, 194));
   background-attachment: fixed;
 
+
+
 }
  center h1 {
-    color: rgb(184, 73, 8);
+    color: rgb(9, 95, 110);
     margin: 10px;
-       color: rgb(197, 80, 8);
     margin: 10px;
     padding-top: 30px;
     padding-bottom: 10px;
@@ -20,7 +22,7 @@ body {
 }
 .TopButton {
     position: fixed;
-    bottom: 30px; /*space from down*/
+    bottom: 30px; 
     right: 30px; 
     background-color: #d14f4f;
     padding: 10px;
@@ -73,20 +75,23 @@ nav {
     text-align: center;
     padding: 10px;
 }
-
 nav a {
     text-decoration: none;
     color: white;
-    background-color: rgb(18, 104, 5);
+    background-color: rgb(40, 70, 90);
     padding: 8px 12px;
     border-radius: 10px;
     margin: 5px;
     display: inline-block;
     transition: 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    background-color: black;
+    background-color: rgb(8, 95, 110);
+      transform: scale(1.2);
 }
 
 img {
@@ -97,39 +102,46 @@ img {
 }
 .main-course-links  {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: center;
-    gap: 25px;
-    margin: 40px auto;
-}
-
-
-.main-course-links p {
-    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
     padding: 10px;
 }
 
-.main-course-links img {
-    width: 100%;     
-    height: 150px;   
-    object-fit: cover; 
-    border-radius: 10px;
+.main-course-links p {
+    background: #93d4cc;
+     border-radius: 15px;
+    padding: 10px;
+    text-align:center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 }
-
-.main-course-links img:hover { 
-    transform: scale(1.05);
+.main-course-links p:hover{
+    transform:translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.main-course-links img {
+     width: 100%;
+    height: 180px;
+    object-fit:cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
 .main-course-links a {
-     display: block;
-    margin-top: 8px;
+    display: block;
     text-decoration: none;
-    color: rgb(18, 104, 5);
-    font-weight: bolder;
+    color: rgb(30, 90, 60);
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3;
+
 }
 
 .main-course-links a:hover{
-     color: rgb(9, 193, 70);
+     transform: translateY(-10px);
+     color:rgb(24, 165, 158);
+
 }
 
 .Warak3nab img,
@@ -147,20 +159,9 @@ img {
     height: 400px;
     margin-top: 0px;
     margin-bottom: 70px;
-    border-radius: 100%;
+
 }
-.Warak3nab img:hover,
-.Molokhia img:hover,
-.koshari img:hover,
-.bshamel img:hover,
-.Shrimp img:hover,
-.Pizza img:hover,
-.steak img:hover,
-.shawerma img:hover,
-.creamychickenpasta img:hover,
-.redsaucepasta img:hover {
-border-radius: 40px;
-}
+
 
  
 .Warak3nab h1,
@@ -173,18 +174,9 @@ border-radius: 40px;
 .shawerma h1,
 .creamychickenpasta h1,
 .redsaucepasta h1{
-    color: rgb(114, 54, 13) ;
+    color: rgb(101, 67, 33) ;
 }
-.Warak3nab h2,
-.Molokhia h2,
-.koshari h2,
-.bshamel h2,
-.Shrimp h2,
-.Pizza h2,
-.steak h2,
-.shawerma h2,
-.creamychickenpasta h2,
-.redsaucepasta h2{
+ h2{
     color: rgb(146, 27, 27) ;
     margin: 20px;
     padding-left: 10px;
@@ -203,7 +195,7 @@ border-radius: 40px;
 .shawerma h4,
 .creamychickenpasta h4,
 .redsaucepasta h4{
-    color: rgb(165, 32, 32) ;
+    color: rgb(128, 0, 32);
     margin: 20px;
     padding-left: 10px;
      font-size: xx-large;
@@ -212,17 +204,8 @@ border-radius: 40px;
     font-style: oblique;
 }
 
-.Warak3nab ul,
-.Molokhia ul,
-.koshari ul,
-.bshamel ul,
-.Shrimp ul,
-.Pizza ul,
-.steak ul,
-.shawerma ul,
-.creamychickenpasta ul,
-.redsaucepasta ul{
-    color: rgb(141, 44, 14) ;
+ ul{
+    color:rgb(25, 40, 65);
     margin: 20px;
     padding-left: 30px;
     font-size: large;
@@ -231,17 +214,8 @@ border-radius: 40px;
     font-style: oblique;
     list-style-type: square;
 }
-.Warak3nab ol,
-.Molokhia ol,
-.koshari ol,
-.bshamel ol,
-.Shrimp ol,
-.Pizza ol,
-.steak ol,
-.shawerma ol,
-.creamychickenpasta ol,
-.redsaucepasta ol{
-    color: rgb(70, 23, 9) ;
+ol{
+    color: rgb(128, 0, 32);
     margin: 20px;
     padding-left: 80px;
     font-size: large;
@@ -269,7 +243,7 @@ border-radius: 40px;
 hr {
     border: none;
     height: 2px;
-    background-color: rgb(212,113, 6);
+    background-color: rgb(35, 146, 122);
     margin: 20px 0;
 }
 .Temperature{
@@ -290,4 +264,55 @@ hr {
 .Temperature th{
     background-color: rgb(172, 54, 24);
     font-weight: bold;
+}
+
+
+
+
+
+.food-container h3 {
+    color: #1e2a78;
+    border-bottom: 2px solid rgb(242, 200, 200);
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+
+.food-container p {
+    font-style: italic;
+    color: #333;
+    font-size: 14px;
+}
+
+
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 30px;
+}
+
+.footer h2 {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    margin: 19px 0;
+}
+
+.footer-links a {
+    color: #f5c542;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copy {
+    font-size: 12px;
+    color: #aaa;
 }

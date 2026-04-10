@@ -186,8 +186,7 @@ label {
     letter-spacing: 1px;
 }
 
-input,
-select {
+input,select {
     padding: 16px 20px;
     border: 1px solid #eee;
     border-radius: 12px;
@@ -273,7 +272,7 @@ input:focus {
         display: flex;
         flex-direction: column;
         border-radius: 0;
-        overflow: visible; /* Added to allow scrolling */
+        overflow: visible; 
     }
 
     .overlay-container {
@@ -290,7 +289,7 @@ input:focus {
         transform: none !important;
     }
 
-    /* Logic for showing/hiding forms on mobile */
+
     .sign-in-container,
     .sign-up-container {
         width: 100%;
@@ -311,7 +310,7 @@ input:focus {
     }
 
     .container.right-panel-active .sign-in-container {
-        display: none; /* Instant hide to avoid taking space */
+        display: none; 
     }
 
     .container:not(.right-panel-active) .sign-up-container {
@@ -338,7 +337,7 @@ input:focus {
 
     input, select {
         padding: 14px 18px;
-        font-size: 16px; /* Prevents iOS auto-zoom */
+        font-size: 16px; 
     }
 
     .submit-btn {

@@ -43,3 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+    // sign up
+    let signUpForm = document.querySelector(".sign-up-container form");
+
+    signUpForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let role = document.getElementById("reg-role").value;
+
+        localStorage.setItem("userRole", role);
+        localStorage.setItem("isLoggedIn", "true");
+
+        window.location.href = "index.html";
+    });
+    // login
+    let loginForm = document.querySelector(".sign-in-container form");
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let role = localStorage.getItem("userRole") || "User";
+
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userRole", role);
+
+        window.location.href = "index.html";
+    });
+
+});

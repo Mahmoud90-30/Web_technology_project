@@ -8,53 +8,26 @@
    
 </head>
 <link rel="stylesheet" href="Home page.css">
-<body> 
-
-    <div>
-        <center>
-            <h1><i> Kitchen Chaos Club</i></h1>
-        </center>
-    <hr>
-<h3 >
-    <a href="login-signup.html">
-        Log in
-    </a>
-   &nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="login-signup.html">
-        Sign up
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="favorites.html">
-        My Favourite
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;
-   
-</h3>
-    </div>
-
-    <hr>
-
-    <div>
+<body>
+    <div class="top-bar">
+        <div class="page-name">Kitchen Chaos Club</div>
         <nav>
-            <a href="Home page.html">Home</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="main course.html">Main Course</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
-             <a href="appetizer.html">Appetizers</a> 
-           &nbsp;&nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Desserts.html">Desserts</a> 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="index.html">Home</a>
+            <a href="main course.html">MainCourse</a>
+            <a href="appetizer.html">Appetizers</a>
+            <a href="Desserts.html">Desserts</a>
+            <a href="favorites.html">Favourite</a>
+            <a href="Add recipes.html" id="addBtn">Add</a>
         </nav>
-        <hr>
+        <div class="links" id="authLinks">
+            <a href="login-signup.html">Log in</a>
+            <a href="login-signup.html">Sign up</a>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder=" Search ... 🔍">
+            <div id="results"></div>
+        </div>
     </div>
-
 
 <p>
     <h2 ><u>ABOUT US</u></h2>
@@ -127,12 +100,29 @@
     </div>
     <br>
     <hr>
-    
+    <script src="home.js"></script>
+    <footer class="footer">
+    <div class="footer-content">
 
+        <h2>Kitchen Chaos Club</h2>
+        <p>Cooking made fun, simple, and full of love ❤️</p>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="main course.html">Main Course</a>
+            <a href="appetizer.html">Appetizers</a>
+            <a href="Desserts.html">Desserts</a>
+            <a href="favorites.html">Favorites</a>
+        </div>
+
+        <p class="copy">© 2026 Kitchen Chaos Club | All Rights Reserved</p>
+
+    </div>
+</footer>
 </body>
 
-
 </html>
+
 
 
 
