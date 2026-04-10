@@ -1,5 +1,8 @@
 body{
-    background: #f8ebe6;
+     background: linear-gradient(400deg, rgb(208, 187, 211),#e4cdc4,#f0b7a0);
+ 
+  
+  background-attachment: fixed;
 }
 h1{
     color: #e83636;
