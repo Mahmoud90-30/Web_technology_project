@@ -108,8 +108,7 @@ body {
     }
 
     .card:hover {
-        transform: translateY(-30px);
-        background-color: #850cc7;
+        transform: translateY(-10px);
     }
 
     .card img {
@@ -125,10 +124,6 @@ body {
         color: #850cc7;
         transition: 0.3s;
 
-    }
-
-    .card:hover p {
-        color: #d4b9e5;
     }
 
 /*-------------------------------------------------heart button--------------------------------------------------------*/
@@ -169,19 +164,8 @@ body {
     height: 400px;
     margin-top: 0px;
     margin-bottom: 70px;
-    border-radius: 100%;
+    border-radius: 30px;
     border-color: #65360a;
-}
-
-
-#caesar-salad img:hover,
-#greek-salad img:hover,
-#sambosa img:hover,
-#kobeba img:hover,
-#garlic-bread img:hover,
-#cheese-sticks img:hover,
-#spring-rolls img:hover {
-    border-radius: 40px;
 }
 
 
