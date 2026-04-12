@@ -86,8 +86,7 @@ nav a:hover {
 }
 
 img {
-    width: 10%;
-    height: 150px;
+    
     object-fit: cover;
     border-radius: 6px;
 }
@@ -135,19 +134,19 @@ img {
 
 }
 
-.Warak3nab img,
-.Molokhia img,
-.koshari img,
-.bshamel img,
-.Shrimp img,
-.Pizza img,
-.steak img,
-.shawerma img,
-.creamychickenpasta img,
-.redsaucepasta img {
+#Warak3nab img,
+#Molokhia img,
+#koshari img,
+#bshamel img,
+#Shrimp img,
+#Pizza img,
+#steak img,
+#shawerma img,
+#creamychickenpasta img,
+#redsaucepasta img {
     float: right;
-    width: 400px;
-    height: 400px;
+    width: 400px !important;
+    height: 400px !important;
     margin-top: 0px;
     margin-bottom: 70px;
 
