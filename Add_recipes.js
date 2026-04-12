@@ -92,7 +92,12 @@ function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
 
     const heartBtn = `<button class="heart-btn"><i class="fa-regular fa-heart"></i></button>`;
     const editBtn  = `<a class="edit-recipe-btn" href="edit.html?name=${encodeURIComponent(name)}&cat=${encodeURIComponent(category)}">✏️ Edit</a>`;
-    const imgTag   = imgBase64 ? `<img src="${imgBase64}" alt="${name}">` : '';
+
+    const imgTag = imgBase64
+    ? `<div class="recipe-img-wrapper">
+         <img class="recipe-img" src="${imgBase64}" alt="${name}">
+       </div>`
+    : '';
 
     if (category === 'desserts') {
         return `

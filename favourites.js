@@ -10,7 +10,7 @@ function saveFavourites(list) {
 /* ========= Heart btn =============== */
 function initHeartButtons() {
     document.querySelectorAll('.heart-btn').forEach(btn => {
-        const recipeDiv = btn.closest('div');
+        const recipeDiv = btn.closest('.user-recipe');
         if (!recipeDiv) return;
 
         const titleEl = recipeDiv.querySelector('h1');
