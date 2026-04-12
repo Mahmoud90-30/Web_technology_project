@@ -48,6 +48,7 @@ function initHeartButtons() {
 
 
 
+
 function activateHeart(btn) {
     const icon = btn.querySelector('i');
     if (icon) { icon.classList.remove('fa-regular'); icon.classList.add('fa-solid'); }
