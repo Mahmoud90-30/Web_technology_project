@@ -1,5 +1,3 @@
-
-
 const STORAGE_KEYS = {
     'main-course': 'kcc_added_main-course',
     'desserts':    'kcc_added_desserts',
@@ -49,10 +47,40 @@ function addEditButtons() {
         const recipeName = rawText.replace(/\s+/g,' ').trim();
         if (!recipeName || recipeName.length < 2) return;
 
-        const btn  = document.createElement('a');
+        const btn = document.createElement('a');
         btn.className   = 'edit-recipe-btn';
         btn.textContent = '✏️ Edit';
         btn.href = 'edit.html?name=' + encodeURIComponent(recipeName) + '&cat=' + encodeURIComponent(category);
+
+        btn.addEventListener('click', function() {
+            // جيب الـ ingredients من كل الـ ul li
+            var ingredientItems = div.querySelectorAll('ul li');
+            var ingredientsText = Array.from(ingredientItems).map(function(li) {
+                return li.innerText.trim();
+            }).join('\n');
+
+            // جيب الـ steps من الـ ol > li بس من غير الـ nested
+            var stepItems = div.querySelectorAll('ol > li');
+            var stepsText = Array.from(stepItems).map(function(li) {
+                var clone = li.cloneNode(true);
+                var nested = clone.querySelectorAll('ul, ol');
+                nested.forEach(function(n){ n.remove(); });
+                return clone.innerText.trim();
+            }).join('\n');
+
+            // جيب الصورة لو موجودة
+            var imgEl = div.querySelector('img');
+            var imgSrc = (imgEl && imgEl.src) ? imgEl.src : '';
+
+            sessionStorage.setItem('kcc_edit_prefill', JSON.stringify({
+                name        : recipeName,
+                category    : category,
+                ingredients : ingredientsText,
+                steps       : stepsText,
+                imgSrc      : imgSrc
+            }));
+        });
+
         heading.appendChild(btn);
     });
 }
@@ -77,10 +105,28 @@ function initEditPage() {
     currentIndex   = currentRecipes.findIndex(function(r){ return r.name === currentName; });
 
     if (currentIndex === -1) {
-   
+        // وصفة أصلية — نجيب بياناتها من sessionStorage
         const badge = document.getElementById('category-badge');
         if (badge) badge.textContent = CATEGORY_LABELS[currentCategory] || currentCategory;
         document.getElementById('recipe-name').value = currentName;
+
+        var prefillRaw = sessionStorage.getItem('kcc_edit_prefill');
+        if (prefillRaw) {
+            try {
+                var prefill = JSON.parse(prefillRaw);
+                if (prefill.name === currentName && prefill.category === currentCategory) {
+                    document.getElementById('ingredients').value = prefill.ingredients || '';
+                    document.getElementById('steps').value       = prefill.steps       || '';
+                    if (prefill.imgSrc) {
+                        var wrap = document.getElementById('current-img-wrap');
+                        var img  = document.getElementById('current-img');
+                        if (wrap) wrap.style.display = 'flex';
+                        if (img)  img.src = prefill.imgSrc;
+                    }
+                }
+            } catch(e) {}
+            sessionStorage.removeItem('kcc_edit_prefill');
+        }
     } else {
         loadRecipeIntoForm(currentRecipes[currentIndex]);
     }
