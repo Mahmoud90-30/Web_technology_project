@@ -871,6 +871,7 @@
     <div id="topBtn" class="TopButton">
         <a href="#top">Return To Top</a>
     </div>
+    <div id="user-recipes-section"></div>
     <script>
         let btn = document.getElementById("topBtn");
 
@@ -882,14 +883,23 @@
                 btn.classList.remove("show");
             }
         };
+        (function() {
+            var key = 'kcc_added_desserts'; 
+            var saved = JSON.parse(localStorage.getItem(key) || '[]');
+            if (saved.length === 0) return;
+            var section = document.getElementById('user-recipes-section');
+            saved.forEach(function(recipe) {
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = recipe.html;
+                section.appendChild(wrapper);
+            });
+            if (typeof initHeartButtons === 'function') initHeartButtons();
+        })();
     </script>
     <script src="favourites.js"></script>
-
-    <div id="user-recipes-section"></div>
+    <script src="edit.js"></script>
 
     </main>
-
-
         <footer class="footer">
     <div class="footer-content">
 
@@ -907,22 +917,6 @@
 
     </div>
 </footer>
-    
-<script>
-(function() {
-    var key = 'kcc_added_desserts'; 
-    var saved = JSON.parse(localStorage.getItem(key) || '[]');
-    if (saved.length === 0) return;
-    var section = document.getElementById('user-recipes-section');
-    saved.forEach(function(recipe) {
-        var wrapper = document.createElement('div');
-        wrapper.innerHTML = recipe.html;
-        section.appendChild(wrapper);
-    });
-    if (typeof initHeartButtons === 'function') initHeartButtons();
-})();
-</script>
-<script src="edit.js"></script>
 
 </body>
 
