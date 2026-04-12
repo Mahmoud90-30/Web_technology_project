@@ -1,4 +1,8 @@
-/* ---- preview---- */
+/* ============================================================
+   Add_recipes.js  –  Kitchen Chaos Club
+   ============================================================ */
+
+/* ---------- Image preview ---------- */
 document.getElementById('recipe-image').addEventListener('change', function () {
     const file = this.files[0];
     if (!file) return;
@@ -11,7 +15,7 @@ document.getElementById('recipe-image').addEventListener('change', function () {
     reader.readAsDataURL(file);
 });
 
-/* ----Add recipe---- */
+/* ---------- Validation & entry point ---------- */
 function addRecipe() {
     const category    = document.getElementById('Category').value;
     const name        = document.getElementById('recipe-name').value.trim();
@@ -35,81 +39,65 @@ function addRecipe() {
     }
 }
 
+/* ---------- Storage keys (must match each page's load script) ---------- */
+const STORAGE_KEYS = {
+    'main-course' : 'kcc_added_main-course',
+    'desserts'    : 'kcc_added_desserts',
+    'appetizer'   : 'kcc_added_appetizer'
+};
 
-//save recipe
+const PAGE_URLS = {
+    'main-course' : 'main_course.html',
+    'desserts'    : 'Desserts.html',
+    'appetizer'   : 'appetizer.html'
+};
+
+/* ---------- Save ---------- */
 function saveRecipe(category, name, imgBase64, ingredients, steps) {
-    const ingredientsList = ingredients.split('\n')
-        .filter(i => i.trim())
-        .map(i => '<li>' + i.trim() + '</li>')
-        .join('');
+    const recipeHTML = buildRecipeHTML(category, name, imgBase64, ingredients, steps);
 
-    const stepsList = steps.split('\n')
-        .filter(s => s.trim())
-        .map(s => '<li>' + s.trim() + '</li>')
-        .join('');
-
-    const imgTag = imgBase64
-        ? '<img src="' + imgBase64 + '" alt="' + name + '">'
-        : '';
-
-    const recipeHTML = `
-        <div class="user-recipe">
-            <h1>${name}
-                <button class="heart-btn">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-            </h1>
-            ${imgTag}
-            <h2>📝 Ingredients</h2>
-            <ul>${ingredientsList}</ul>
-            <h2>➡️ Preparation Steps</h2>
-            <ol>${stepsList}</ol>
-        </div>
-    `;
-
-    const key = 'kcc_added_' + category;
+    const key   = STORAGE_KEYS[category];
     const saved = JSON.parse(localStorage.getItem(key) || '[]');
-    saved.push({ name: name, html: recipeHTML });
+
+    // prevent duplicate names
+    const dupIndex = saved.findIndex(r => r.name === name);
+    if (dupIndex !== -1) {
+        showToast('⚠️ A recipe with this name already exists!');
+        return;
+    }
+
+    saved.push({
+        name,
+        html       : recipeHTML,
+        ingredients,
+        steps,
+        imgBase64,
+        category
+    });
     localStorage.setItem(key, JSON.stringify(saved));
 
     showToast('✅ Recipe added successfully!');
-    setTimeout(() => {
-        if (category === 'main-course')    window.location.href = 'main course.html';
-        else if (category === 'desserts')  window.location.href = 'Desserts.html';
-        else if (category === 'appetizer') window.location.href = 'appetizer.html';
-    }, 1500);
+    setTimeout(() => { window.location.href = PAGE_URLS[category]; }, 1500);
 }
 
-function showToast(msg) {
-    const toast = document.getElementById('add-toast');
-    toast.textContent = msg;
-    toast.style.display = 'block';
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
-}
-
-// Build recipe HTML — identical structure to each page's cards
+/* ---------- Build recipe HTML (matches each page's card structure) ---------- */
 function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
- 
     const ingredientsHTML = ingredients
         .split('\n').filter(i => i.trim())
         .map(i => `<li>${i.trim()}</li>`).join('');
- 
+
     const stepsHTML = steps
         .split('\n').filter(s => s.trim())
         .map(s => `<li>${s.trim()}</li>`).join('');
- 
-    const heartBtn = `<button class="heart-btn">
-        <i class="fa-regular fa-heart"></i>
-    </button>`;
- 
-    const imgTag = imgBase64
-        ? `<img src="${imgBase64}" alt="${name}">`
-        : '';
-         if (category === 'desserts') {
+
+    const heartBtn = `<button class="heart-btn"><i class="fa-regular fa-heart"></i></button>`;
+    const editBtn  = `<a class="edit-recipe-btn" href="edit.html?name=${encodeURIComponent(name)}&cat=${encodeURIComponent(category)}">✏️ Edit</a>`;
+    const imgTag   = imgBase64 ? `<img src="${imgBase64}" alt="${name}">` : '';
+
+    if (category === 'desserts') {
         return `
-<div class="Choco">
-    <h1><i>${name} 🍴 ${heartBtn}</i></h1>
+<div class="Choco user-recipe" data-name="${name}" data-category="${category}">
+    <h1><i>${name} 🍴 ${heartBtn} ${editBtn}</i></h1>
     <div class="recipe-container">
         ${imgTag}
         <div class="recipe">
@@ -122,10 +110,10 @@ function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
 </div>`;
     }
 
-      if (category === 'appetizer') {
+    if (category === 'appetizer') {
         return `
-<div id="user-${safeid(name)}">
-    <h2>${name} 🍴 ${heartBtn}</h2>
+<div id="user-${safeid(name)}" class="user-recipe" data-name="${name}" data-category="${category}">
+    <h2>${name} 🍴 ${heartBtn} ${editBtn}</h2>
     ${imgTag}
     <h3>📝 Ingredients</h3>
     <ul>${ingredientsHTML}</ul>
@@ -134,10 +122,10 @@ function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
 </div>`;
     }
 
-      if (category === 'main-course') {
+    if (category === 'main-course') {
         return `
-<div class="Warak3nab">
-    <h1><i>${name} 🍴 ${heartBtn}</i></h1>
+<div class="Warak3nab user-recipe" data-name="${name}" data-category="${category}">
+    <h1><i>${name} 🍴 ${heartBtn} ${editBtn}</i></h1>
     ${imgTag}
     <h2><i>📝 Ingredients</i></h2>
     <ul>${ingredientsHTML}</ul>
@@ -145,11 +133,19 @@ function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
     <ol>${stepsHTML}</ol>
 </div>`;
     }
- 
+
     return '';
 }
- 
+
 function safeid(name) {
     return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
 
+/* ---------- Toast ---------- */
+function showToast(msg) {
+    const toast = document.getElementById('add-toast');
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
+}

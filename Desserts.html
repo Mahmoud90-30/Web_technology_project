@@ -906,7 +906,7 @@
     
 <script>
 (function() {
-    var key = 'kcc_added_dessert'; 
+    var key = 'kcc_added_desserts'; 
     var saved = JSON.parse(localStorage.getItem(key) || '[]');
     if (saved.length === 0) return;
     var section = document.getElementById('user-recipes-section');
@@ -918,6 +918,7 @@
     if (typeof initHeartButtons === 'function') initHeartButtons();
 })();
 </script>
+<script src="edit.js"></script>
 
 </body>
 
