@@ -1,0 +1,423 @@
+/* ============================================================
+   edit.css  –  Kitchen Chaos Club  |  Edit Recipe Page
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --main-blue:  #1e3a8a;
+    --light-blue: #3b82f6;
+    --soft-blue:  #dbeafe;
+    --dark-navy:  #0f172a;
+    --border:     #cbd5e1;
+    --shadow:     rgba(30, 64, 175, 0.1);
+    --red:        #dc2626;
+    --red-soft:   #fee2e2;
+    --red-hover:  #b91c1c;
+    --light-bg:   #ffffff;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(135deg, hsl(215, 72%, 85%), hsl(195, 56%, 78%));
+    min-height: 100vh;
+    padding: 20px 16px 60px;
+}
+
+/* ===== Nav ===== */
+nav {
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+nav a {
+    text-decoration: none;
+    color: rgb(21, 21, 22);
+    background-color: hsl(237, 29%, 75%);
+    padding: 8px 16px;
+    border-radius: 10px;
+    margin: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+nav a:hover { background-color: rgb(104, 108, 109); }
+
+/* ===== Page Title ===== */
+h1.page-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--dark-navy);
+    text-align: center;
+    margin: 20px 0 36px;
+    letter-spacing: 1px;
+}
+h1.page-title span {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* ===== Form Wrapper ===== */
+.form-wrapper {
+    background: var(--light-bg);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 48px 40px;
+    border-radius: 24px;
+    box-shadow:
+        0 2px 0 #e2e8f0,
+        0 12px 40px rgba(0,0,0,0.05),
+        0 40px 80px rgba(30,64,175,0.08);
+    position: relative;
+    overflow: hidden;
+}
+.form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6, #1e3a8a);
+}
+.form-wrapper::after {
+    content: '✨';
+    position: absolute;
+    top: 14px; right: 20px;
+    font-size: 28px;
+    opacity: 0.25;
+}
+
+/* ===== Category Badge ===== */
+.category-badge {
+    display: inline-block;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    background: var(--soft-blue);
+    color: var(--main-blue);
+    font-family: 'Lato', sans-serif;
+}
+
+/* ===== Form Groups ===== */
+.form-group {
+    margin-bottom: 28px;
+}
+.form-group label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #072440;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+.form-group label .hint {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #140a8c;
+    font-style: italic;
+    margin-left: 6px;
+}
+
+/* ===== Inputs ===== */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #1a1a2e;
+    background: #f8fdff;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+    transform: translateY(-1px);
+}
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.7;
+}
+
+/* ===== Current image preview ===== */
+.current-img-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    background: #f0f7ff;
+    border-radius: 12px;
+    border: 2px solid var(--soft-blue);
+}
+.current-img-wrap img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--soft-blue);
+}
+.current-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: var(--main-blue);
+    font-style: italic;
+}
+
+/* ===== File Input ===== */
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    background: #f8fafc;
+    transition: border-color 0.3s, background 0.3s;
+    color: var(--main-blue);
+    font-size: 15px;
+}
+.file-label:hover {
+    border-color: var(--main-blue);
+    background: var(--soft-blue);
+}
+.file-label .file-icon { font-size: 22px; }
+input[type="file"] { display: none; }
+
+#img-preview {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 14px;
+    border: 4px solid var(--soft-blue);
+    box-shadow: 0 4px 16px var(--shadow);
+    transition: border-color 0.3s;
+}
+#img-preview:hover { border-radius: 20px; }
+
+/* ===== Divider ===== */
+.form-divider {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 32px 0;
+}
+
+/* ===== Button Row ===== */
+.btn-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+/* ===== Save Button ===== */
+.submit-btn {
+    flex: 1;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--main-blue) 0%, var(--dark-navy) 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(30,64,175,0.2);
+    letter-spacing: 0.5px;
+}
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30,64,175,0.35);
+}
+.submit-btn:active { transform: translateY(0); }
+
+/* ===== Delete Button ===== */
+.delete-btn {
+    flex: 1;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--red) 0%, #7f1d1d 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(220,38,38,0.2);
+    letter-spacing: 0.5px;
+}
+.delete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(220,38,38,0.4);
+}
+.delete-btn:active { transform: translateY(0); }
+
+/* ===== Not Found State ===== */
+.not-found {
+    text-align: center;
+    padding: 60px 20px;
+}
+.nf-icon { font-size: 64px; margin-bottom: 16px; }
+.not-found p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #334155;
+    margin-bottom: 20px;
+}
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--main-blue);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    transition: 0.3s;
+}
+.back-link:hover { opacity: 0.85; }
+
+/* ===== Toast ===== */
+#edit-toast {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    z-index: 9999;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px var(--shadow);
+    animation: fadeInUp 0.3s ease;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+    animation: popIn 0.25s ease;
+}
+@keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+}
+.modal-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+.modal-msg {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+.modal-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+}
+.confirm-yes {
+    padding: 12px 28px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.confirm-yes:hover { background: var(--red-hover); transform: translateY(-1px); }
+.confirm-no {
+    padding: 12px 28px;
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.confirm-no:hover { background: #cbd5e1; transform: translateY(-1px); }
+
+/* ===== Edit btn style (used in recipe cards) ===== */
+.edit-recipe-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--soft-blue);
+    color: var(--main-blue);
+    border: 2px solid var(--light-blue);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: normal;
+    transition: 0.2s;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.edit-recipe-btn:hover {
+    background: var(--main-blue);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 680px) {
+    .form-wrapper { padding: 30px 20px 28px; }
+    h1.page-title { font-size: 1.8rem; }
+    .btn-row { flex-direction: column; }
+}

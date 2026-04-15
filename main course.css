@@ -14,8 +14,6 @@ body {
     color: rgb(9, 95, 110);
     margin: 10px;
     margin: 10px;
-    padding-top: 30px;
-    padding-bottom: 10px;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: xx-large;
@@ -73,7 +71,6 @@ body {
 
 nav {
     text-align: center;
-    padding: 10px;
 }
 nav a {
     text-decoration: none;
@@ -91,12 +88,11 @@ nav a {
 
 nav a:hover {
     background-color: rgb(8, 95, 110);
-      transform: scale(1.2);
+      transform: scale(1.12);
 }
 
 img {
-    width: 10%;
-    height: 150px;
+    
     object-fit: cover;
     border-radius: 6px;
 }
@@ -144,19 +140,19 @@ img {
 
 }
 
-.Warak3nab img,
-.Molokhia img,
-.koshari img,
-.bshamel img,
-.Shrimp img,
-.Pizza img,
-.steak img,
-.shawerma img,
-.creamychickenpasta img,
-.redsaucepasta img {
+#Warak3nab img,
+#Molokhia img,
+#koshari img,
+#bshamel img,
+#Shrimp img,
+#Pizza img,
+#steak img,
+#shawerma img,
+#creamychickenpasta img,
+#redsaucepasta img {
     float: right;
-    width: 400px;
-    height: 400px;
+    width: 400px !important;
+    height: 400px !important;
     margin-top: 0px;
     margin-bottom: 70px;
 

@@ -27,6 +27,9 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .form-container {

@@ -3,9 +3,14 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     
 
+
  background: linear-gradient(400deg, rgb(205, 224, 215), rgb(230, 206, 233),rgb(227, 136, 241));
  
   
+
+ background: linear-gradient(400deg, rgb(205, 224, 215), rgb(230, 206, 233), rgb(209, 142, 238));
+   
+
   background-attachment: fixed;
 }
 
@@ -37,103 +42,99 @@ body {
     transform: translateY(-5px);
 }
 
-h1 {
-    color: rgb(110, 11, 164);
-    margin: 10px;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: xx-large;
-}
-
-h3 a {
-    text-decoration: none;
-    background-color: #eeca93;
-    color: rgb(66, 71, 71);
-    padding: 8px 12px;
-    border-radius: 8px;
-    display: inline-block;
-    transition: 0.3s;
-
-}
-
-h3 a:hover {
-    background-color: black;
-    color: white;
-}
-
-nav {
-    text-align: center;
-    padding: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    background-color:rgb(138, 15, 219);
-    padding: 8px 12px;
-    border-radius: 10px;
-    margin: 5px;
-    display: inline-block;
-    transition: 0.3s;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: larger;
-    transition: 0.3s;
-
-}
-
-nav a:hover {
-    background-color: rgb(93, 3, 153);
-    transform: scale(1.2);
-}
+/*------------------------------------nav & cards-------------------------------------------------*/
+    h1 {
+        color: rgb(110, 11, 164);
+        margin: 10px;
 
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 10px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: xx-large;
+    }
 
-.appetizer {
-    width: 180px;
-    text-align: center;
-}
+    h3 a {
+        text-decoration: none;
+        background-color: #eeca93;
+        color: rgb(66, 71, 71);
+        padding: 8px 12px;
+        border-radius: 8px;
+        display: inline-block;
+        transition: 0.3s;
 
-.appetizer img {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
+    }
 
-.appetizer img:hover {
-    transform: scale(1.05);
-}
+    h3 a:hover {
+        background-color: black;
+        color: white;
+    }
 
-.appetizer a {
-    display: block;
-    margin-top: 8px;
-    text-decoration: none;
-    color: rgb(110, 11, 164);
-    font-weight: bolder;
-    transition: 0.3s;
-    background-color: #d2acf6;
-    border-radius: 10px;
-}
+    nav {
+        text-align: center;
 
-.appetizer a:hover {
-    color: rgb(247, 245, 249);
-    transform: scale(1.05);
-    background-color: #7930bc;
-    border-radius: 40px;
-}
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        background-color:rgb(138, 15, 219);
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin: 5px;
+        display: inline-block;
+        transition: 0.3s;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: larger;
+        transition: 0.3s;
+
+    }
+
+    nav a:hover {
+        background-color: rgb(93, 3, 153);
+        transform: scale(1.12);
+    }
+
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 40px;
+    }
+
+    .card {
+        width: 180px;
+        background-color: #caa6e8;
+        border-radius: 15px;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,1);
+        transition: 0.3s;
+        text-decoration: none;
+        display: block;
+
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card p {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #850cc7;
+        transition: 0.3s;
+
+    }
+
 /*-------------------------------------------------heart button--------------------------------------------------------*/
 
 .heart-btn {
@@ -172,19 +173,8 @@ nav a:hover {
     height: 400px;
     margin-top: 0px;
     margin-bottom: 70px;
-    border-radius: 100%;
+    border-radius: 30px;
     border-color: #65360a;
-}
-
-
-#caesar-salad img:hover,
-#greek-salad img:hover,
-#sambosa img:hover,
-#kobeba img:hover,
-#garlic-bread img:hover,
-#cheese-sticks img:hover,
-#spring-rolls img:hover {
-    border-radius: 40px;
 }
 
 
@@ -317,5 +307,20 @@ hr {
 .copy {
     font-size: 12px;
     color: #aaa;
+}
+
+
+
+#user-recipes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.user-recipe-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
