@@ -1,9 +1,15 @@
 body{
+
+
+    
+    background: linear-gradient(400deg, rgb(208, 187, 211),#e4cdc4,#f0b199);
+
      background: linear-gradient(400deg, #edd1f0,#f6d8cd,#fdccb9);
- 
+
   
   background-attachment: fixed;
 }
+
 h1{
     color: #e83636;
     font-family: Georgia, 'Times New Roman', Times, serif;

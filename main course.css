@@ -1,8 +1,14 @@
 body {
     font-family: Arial, sans-serif;
+
+   
+      
  
-  background: linear-gradient(400deg,rgb(213, 202, 214),  rgb(204, 240, 221), rgb(149, 241, 194));
+  background: linear-gradient(400deg,rgb(213, 202, 214),  rgb(204, 240, 221), rgb(143, 240, 190));
   background-attachment: fixed;
+
+
+
 }
  center h1 {
     color: rgb(9, 95, 110);
@@ -86,8 +92,7 @@ nav a:hover {
 }
 
 img {
-    width: 10%;
-    height: 150px;
+    
     object-fit: cover;
     border-radius: 6px;
 }
@@ -135,19 +140,19 @@ img {
 
 }
 
-.Warak3nab img,
-.Molokhia img,
-.koshari img,
-.bshamel img,
-.Shrimp img,
-.Pizza img,
-.steak img,
-.shawerma img,
-.creamychickenpasta img,
-.redsaucepasta img {
+#Warak3nab img,
+#Molokhia img,
+#koshari img,
+#bshamel img,
+#Shrimp img,
+#Pizza img,
+#steak img,
+#shawerma img,
+#creamychickenpasta img,
+#redsaucepasta img {
     float: right;
-    width: 400px;
-    height: 400px;
+    width: 400px !important;
+    height: 400px !important;
     margin-top: 0px;
     margin-bottom: 70px;
 

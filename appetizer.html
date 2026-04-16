@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="appetizer.css">
 
 <body>
+
+    <main class="page-content">
     <h1 id="top"><b><i>🎉 Appetizers Recipes 🎉</i></b></h1>
     <hr>
     <h4 style="color: rgb(66, 6, 99); background-color: #e1b8f8; #d2acf6; border-radius: 50px; padding: 10px; margin-left: auto;margin-right: auto;">
@@ -68,8 +70,8 @@
         </a>
     </div>
     <hr>
-
-    <div id="caesar-salad">
+    
+    <div id="caesar-salad" class="user-recipe" data-name="Caesar Salad">
         <h2>Caesar Salad 🥗   <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -103,7 +105,7 @@
 
     <hr>
 
-    <div id="greek-salad">
+    <div id="greek-salad" class="user-recipe" data-name="Greek Salad">
         <h2>Greek Salad 🥗  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -138,7 +140,7 @@
 
     <hr>
 
-    <div id="sambosa">
+    <div id="sambosa" class="user-recipe" data-name="Cheese Sambosa">
         <h2>Cheese Sambosa 🥟  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -172,7 +174,7 @@
 
     <hr>
 
-    <div id="kobeba">
+    <div id="kobeba" class="user-recipe" data-name="Kobeba">
         <h2>Kobeba 🥟  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -206,7 +208,7 @@
 
     <hr>
 
-    <div id="garlic-bread">
+    <div id="garlic-bread" class="user-recipe" data-name="Garlic Bread">
         <h2>Garlic Bread 🫓  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -240,7 +242,7 @@
 
     <hr>
 
-    <div id="cheese-sticks">
+    <div id="cheese-sticks" class="user-recipe" data-name="Cheese Sticks">
         <h2>Cheese Sticks 🧀  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -274,7 +276,7 @@
 
     <hr>
 
-    <div id="spring-rolls">
+    <div id="spring-rolls" class="user-recipe" data-name="Spring Rolls">
         <h2>Spring Rolls 🥟  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h2>
@@ -310,7 +312,9 @@
     <hr>
 
 
+    <div id="user-recipes-section"></div>
 
+    </main>
         <footer class="footer">
     <div class="footer-content">
 
@@ -348,7 +352,7 @@
         };
     </script>
     <script src="favourites.js"></script>
-    <div id="user-recipes-section"></div>
+    
 <script>
 (function() {
     var key = 'kcc_added_appetizer';
@@ -363,6 +367,7 @@
     if (typeof initHeartButtons === 'function') initHeartButtons();
 })();
 </script>
+<script src="edit.js"></script>
 </body>
 
 </html>

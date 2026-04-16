@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+    <main class="page-content">
     <h1 id="top" style="text-align: center;"><b><i>🎉Dessert Recipes🎉</i></b></h1>
 
     <div class="navbar">
@@ -91,7 +93,7 @@
         </p>
     </div>
     <hr>
-    <div class="Choco">
+    <div id="Choco" class="user-recipe" data-name="Chocolate Cake">
         <h1 id="choco-cake"><i>Chocolate Cake 🍫  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></i></h1>
@@ -192,7 +194,7 @@
         </div>
     </div>
     <hr>
-    <div class="ChocoChip">
+    <div id="ChocoChip" class="user-recipe" data-name="Chocolate Chip Cookies">
         <h1 id="cookie"><i>Chocolate Chip Cookies 🍪  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></i></h1>
@@ -261,7 +263,7 @@
         </div>
     </div>
     <hr>
-    <div class="Donuts">
+    <div id="Donuts" class="user-recipe" data-name="Donuts">
         <h1 id="donuts"><i>Donuts🍩  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></i></h1>
@@ -339,7 +341,7 @@
         </div>
     </div>
     <hr>
-    <div class="StrawIce">
+    <div id="StrawIce" class="user-recipe" data-name="Strawberry Ice Cream">
         <h1 id="strawberry-ice-cream"><i>Strawberry Ice Cream 🍨</i>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -403,7 +405,7 @@
         </div>
     </div>
     <hr>
-    <div class="Tira">
+    <div id="Tira" class="user-recipe" data-name="Tiramisu">
         <h1 id="tiramisu"><i>Tiramisu</i>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -471,7 +473,7 @@
         </div>
     </div>
     <hr>
-    <div class="Cinnamon">
+    <div id="Cinnamon" class="user-recipe" data-name="Cinnamon Rolls">
         <h1 id="cinnamon"><i>Cinnamon Rolls</i>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -560,7 +562,7 @@
     </div>
     <hr>
 
-    <div class="Basbousa">
+    <div id="Basbousa" class="user-recipe" data-name="Basbousa">
         <h1 id="Basbousa"><i>Basbousa</i>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -627,7 +629,7 @@
         </div>
     </div>
     <hr>
-    <div class="Applepie">
+    <div id="Applepie" class="user-recipe" data-name="Apple Pie">
         <h1 id="applepie"><b><i>🥧Apple Pie🍎</i></b>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -712,7 +714,7 @@
         </div>
     </div>
     <hr>
-    <div class="Cheesecake">
+    <div id="Cheesecake" class="user-recipe" data-name="Cheesecake">
         <h1 id="Cheesecake"><b><i> Cheesecake🍰</i></b>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -792,7 +794,7 @@
         </div>
     </div>
     <hr>
-    <div class="CrèmeCaramel">
+    <div id="CrèmeCaramel" class="user-recipe" data-name="Crème Caramel">
         <h1 id="CrèmeCaramel"><b><i> Crème Caramel🍮</i></b>  <button class="heart-btn">
                 <i class="fa-regular fa-heart"></i>
             </button></h1>
@@ -869,6 +871,7 @@
     <div id="topBtn" class="TopButton">
         <a href="#top">Return To Top</a>
     </div>
+    <div id="user-recipes-section"></div>
     <script>
         let btn = document.getElementById("topBtn");
 
@@ -880,12 +883,23 @@
                 btn.classList.remove("show");
             }
         };
+        (function() {
+            var key = 'kcc_added_desserts'; 
+            var saved = JSON.parse(localStorage.getItem(key) || '[]');
+            if (saved.length === 0) return;
+            var section = document.getElementById('user-recipes-section');
+            saved.forEach(function(recipe) {
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = recipe.html;
+                section.appendChild(wrapper);
+            });
+            if (typeof initHeartButtons === 'function') initHeartButtons();
+        })();
     </script>
     <script src="favourites.js"></script>
+    <script src="edit.js"></script>
 
-    <div id="user-recipes-section"></div>
-
-
+    </main>
         <footer class="footer">
     <div class="footer-content">
 
@@ -903,21 +917,6 @@
 
     </div>
 </footer>
-    
-<script>
-(function() {
-    var key = 'kcc_added_dessert'; 
-    var saved = JSON.parse(localStorage.getItem(key) || '[]');
-    if (saved.length === 0) return;
-    var section = document.getElementById('user-recipes-section');
-    saved.forEach(function(recipe) {
-        var wrapper = document.createElement('div');
-        wrapper.innerHTML = recipe.html;
-        section.appendChild(wrapper);
-    });
-    if (typeof initHeartButtons === 'function') initHeartButtons();
-})();
-</script>
 
 </body>
 
