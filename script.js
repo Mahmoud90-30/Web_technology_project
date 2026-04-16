@@ -29,21 +29,22 @@ if (window.location.hash === '#signup') {
 });
 
 document.addEventListener('submit', (e) => {
-
     e.preventDefault();
 
     const role = document.getElementById('reg-role')?.value;
     const email = document.getElementById('reg-email')?.value || document.getElementById('login-email')?.value;
 
-
     if (email !== "" && email !== null) {
-        
 
         localStorage.setItem("userRole", role || "User");
         localStorage.setItem("isLoggedIn", "true");
 
-        window.location.href = "index.html"; 
-    } else {
-        alert("من فضلك كمل البيانات الأول!");
+
+        if (role === "Admin") {
+            window.location.href = "main course.html";
+        } else {
+            window.location.href = "index.html";
+        }
+
     }
 });
