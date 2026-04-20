@@ -394,25 +394,29 @@ input[type="file"] { display: none; }
 
 /* ===== Edit btn style (used in recipe cards) ===== */
 .edit-recipe-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    background: var(--soft-blue);
-    color: var(--main-blue);
-    border: 2px solid var(--light-blue);
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-family: 'Lato', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
+    background: var(--soft-blue, #dbeafe);
+    color: var(--main-blue, #1e3a8a);
+    border: 2px solid var(--light-blue, #3b82f6);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 15px;
     font-style: normal;
     transition: 0.2s;
     margin-left: 8px;
     vertical-align: middle;
+    flex-shrink: 0;
+    line-height: 1;
 }
 .edit-recipe-btn:hover {
-    background: var(--main-blue);
+    background: var(--main-blue, #1e3a8a);
     color: white;
-    transform: translateY(-1px);
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(30,58,138,0.25);
 }
 
 /* ===== Responsive ===== */

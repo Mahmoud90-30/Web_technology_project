@@ -29,37 +29,35 @@ function addEditButtons() {
     const category = getCurrentCategory();
     if (!category) return;
 
-    const skipIds      = ['user-recipes-section','topBtn','results','top-bar'];
-    const skipClasses  = ['navbar','footer','footer-content','recipe-links',
-                          'main-course-links','recipe-container','recipe',
-                          'TopButton','search-box','TRENDING','food-container',
-                          'container','scroll-box','links','scroll-box'];
+    // الزرار يظهر بس للـ Admin
+    const userRole = localStorage.getItem('userRole');
+    if (userRole !== 'Admin') return;
 
-    document.querySelectorAll('body div').forEach(function(div) {
-        if (skipIds.some(function(s){ return div.id === s; })) return;
-        if (skipClasses.some(function(s){ return div.classList.contains(s); })) return;
-
-        const heading = div.querySelector(':scope > h1, :scope > h2');
+    // استهداف الـ user-recipe divs بس — اللي عندها data-name
+    document.querySelectorAll('.user-recipe[data-name]').forEach(function(div) {
+        // نختار h1 لو موجود، وإلا h2 — لأن Desserts/Main بيستخدموا h1 و Appetizer h2
+        const heading = div.querySelector('h1') || div.querySelector('h2');
         if (!heading) return;
-        if (heading.querySelector('.edit-recipe-btn')) return;
 
-        const rawText    = heading.innerText || heading.textContent || '';
-        const recipeName = rawText.replace(/\s+/g,' ').trim();
-        if (!recipeName || recipeName.length < 2) return;
+        // امسح أي زرار edit قديم (ممكن يكون محفوظ في localStorage بالشكل القديم)
+        const oldBtn = heading.querySelector('.edit-recipe-btn');
+        if (oldBtn) oldBtn.remove();
+
+        const recipeName = (div.getAttribute('data-name') || '').trim();
+        if (!recipeName) return;
 
         const btn = document.createElement('a');
         btn.className   = 'edit-recipe-btn';
-        btn.textContent = '✏️ Edit';
+        btn.textContent = '✏️';
+        btn.title       = 'Edit ' + recipeName;
         btn.href = 'edit.html?name=' + encodeURIComponent(recipeName) + '&cat=' + encodeURIComponent(category);
 
         btn.addEventListener('click', function() {
-            // جيب الـ ingredients من كل الـ ul li
             var ingredientItems = div.querySelectorAll('ul li');
             var ingredientsText = Array.from(ingredientItems).map(function(li) {
                 return li.innerText.trim();
             }).join('\n');
 
-            // جيب الـ steps من الـ ol > li بس من غير الـ nested
             var stepItems = div.querySelectorAll('ol > li');
             var stepsText = Array.from(stepItems).map(function(li) {
                 var clone = li.cloneNode(true);
@@ -68,7 +66,6 @@ function addEditButtons() {
                 return clone.innerText.trim();
             }).join('\n');
 
-            // جيب الصورة لو موجودة
             var imgEl = div.querySelector('img');
             var imgSrc = (imgEl && imgEl.src) ? imgEl.src : '';
 
@@ -223,7 +220,7 @@ function showNotFound() {
 function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
     const li = function(arr){ return arr.split('\n').filter(function(x){ return x.trim(); }).map(function(x){ return '<li>'+x.trim()+'</li>'; }).join(''); };
     const heartBtn = '<button class="heart-btn"><i class="fa-regular fa-heart"></i></button>';
-    const editBtn  = '<a class="edit-recipe-btn" href="edit.html?name='+encodeURIComponent(name)+'&cat='+encodeURIComponent(category)+'">✏️ Edit</a>';
+    const editBtn  = '<a class="edit-recipe-btn" href="edit.html?name='+encodeURIComponent(name)+'&cat='+encodeURIComponent(category)+'" title="Edit '+name+'">✏️</a>';
     const imgTag   = imgBase64 ? '<img src="'+imgBase64+'" alt="'+name+'">' : '';
 
     if (category === 'desserts') return '<div class="Choco user-recipe" data-name="'+name+'" data-category="'+category+'"><h1><i>'+name+' 🍴 '+heartBtn+' '+editBtn+'</i></h1><div class="recipe-container">'+imgTag+'<div class="recipe"><h2><i>📝 Ingredients</i></h2><ul>'+li(ingredients)+'</ul><h2><i>➡️ Preparation Steps</i></h2><ol>'+li(steps)+'</ol></div></div></div>';
