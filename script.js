@@ -39,12 +39,7 @@ document.addEventListener('submit', (e) => {
         localStorage.setItem("userRole", role || "User");
         localStorage.setItem("isLoggedIn", "true");
 
-
-        if (role === "Admin") {
-            window.location.href = "main course.html";
-        } else {
-            window.location.href = "index.html";
-        }
-
+        window.location.href = "index.html";
+    
     }
 });
