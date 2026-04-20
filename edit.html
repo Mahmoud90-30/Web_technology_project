@@ -25,25 +25,25 @@
 
 <div class="form-wrapper">
 
-    <!-- Not Found State -->
+
     <div id="not-found" style="display:none;" class="not-found">
         <div class="nf-icon">🍽️</div>
         <p>Recipe not found!</p>
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
-    <!-- Edit Form -->
+
     <div id="edit-form">
 
         <div class="category-badge" id="category-badge"></div>
 
-        <!-- Recipe Name -->
+
         <div class="form-group">
             <label><b>🍽️ Recipe Name</b></label>
             <input type="text" id="recipe-name" placeholder="Recipe name">
         </div>
 
-        <!-- Image -->
+
         <div class="form-group">
             <label>📷 Recipe Image</label>
             <div class="current-img-wrap" id="current-img-wrap" style="display:none;">
@@ -60,32 +60,31 @@
 
         <hr class="form-divider">
 
-        <!-- Ingredients -->
         <div class="form-group">
             <label>📝 Ingredients <span class="hint">(each ingredient on a new line)</span></label>
             <textarea id="ingredients" placeholder="e.g.&#10;2 cups flour&#10;1 egg&#10;Salt to taste"></textarea>
         </div>
 
-        <!-- Steps -->
+
         <div class="form-group">
             <label>➡️ Preparation Steps <span class="hint">(each step on a new line)</span></label>
             <textarea id="steps" placeholder="e.g.&#10;Mix ingredients&#10;Bake for 30 minutes"></textarea>
         </div>
 
-        <!-- Buttons -->
+   
         <div class="btn-row">
             <button class="submit-btn" onclick="saveEdit()">💾 Save Changes</button>
             <button class="delete-btn" onclick="openModal()">🗑️ Delete Recipe</button>
         </div>
 
-    </div><!-- /edit-form -->
+    </div>
 
-</div><!-- /form-wrapper -->
+</div>
 
-<!-- Toast -->
+
 <div id="edit-toast"></div>
 
-<!-- Delete Confirm Modal -->
+
 <div id="confirm-modal" class="modal-overlay">
     <div class="modal-box">
         <div class="modal-icon">⚠️</div>
