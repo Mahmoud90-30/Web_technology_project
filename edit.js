@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
 };
 
 const PAGE_URLS = {
-    'main-course': 'main_course.html',
+    'main-course': 'main course.html',
     'desserts':    'Desserts.html',
     'appetizer':   'appetizer.html'
 };

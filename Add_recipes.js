@@ -47,7 +47,7 @@ const STORAGE_KEYS = {
 };
 
 const PAGE_URLS = {
-    'main-course' : 'main_course.html',
+    'main-course' : 'main course.html',
     'desserts'    : 'Desserts.html',
     'appetizer'   : 'appetizer.html'
 };
@@ -91,12 +91,10 @@ function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
         .map(s => `<li>${s.trim()}</li>`).join('');
 
     const heartBtn = `<button class="heart-btn"><i class="fa-regular fa-heart"></i></button>`;
-    const editBtn  = `<a class="edit-recipe-btn" href="edit.html?name=${encodeURIComponent(name)}&cat=${encodeURIComponent(category)}">✏️ Edit</a>`;
+    const editBtn  = `<a class="edit-recipe-btn" href="edit.html?name=${encodeURIComponent(name)}&cat=${encodeURIComponent(category)}" title="Edit ${name}">✏️</a>`;
 
     const imgTag = imgBase64
-    ? `<div class="recipe-img-wrapper">
-         <img class="recipe-img" src="${imgBase64}" alt="${name}">
-       </div>`
+    ? `<img src="${imgBase64}" alt="${name}" style="float:right; width:400px; height:400px; object-fit:cover; border-radius:20px; margin:0 0 20px 30px;">`
     : '';
 
     if (category === 'desserts') {

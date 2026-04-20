@@ -890,6 +890,10 @@
             var section = document.getElementById('user-recipes-section');
             saved.forEach(function(recipe) {
                 var wrapper = document.createElement('div');
+                wrapper.style.overflow = 'hidden';
+                wrapper.style.minHeight = '420px';
+                wrapper.style.marginBottom = '40px';
+                wrapper.style.padding = '20px';
                 wrapper.innerHTML = recipe.html;
                 section.appendChild(wrapper);
             });
