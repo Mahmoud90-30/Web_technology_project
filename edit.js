@@ -16,7 +16,9 @@ const CATEGORY_LABELS = {
     'appetizer':   '🥗 Appetizer'
 };
 
-
+/* =========================
+   Detect Category
+========================= */
 function getCurrentCategory() {
     const path = window.location.pathname.toLowerCase();
     if (path.includes('dessert'))   return 'desserts';
@@ -25,21 +27,20 @@ function getCurrentCategory() {
     return null;
 }
 
+/* =========================
+   Add Edit Buttons
+========================= */
 function addEditButtons() {
     const category = getCurrentCategory();
     if (!category) return;
 
-    // الزرار يظهر بس للـ Admin
     const userRole = localStorage.getItem('userRole');
     if (userRole !== 'Admin') return;
 
-    // استهداف الـ user-recipe divs بس — اللي عندها data-name
     document.querySelectorAll('.user-recipe[data-name]').forEach(function(div) {
-        // نختار h1 لو موجود، وإلا h2 — لأن Desserts/Main بيستخدموا h1 و Appetizer h2
         const heading = div.querySelector('h1') || div.querySelector('h2');
         if (!heading) return;
 
-        // امسح أي زرار edit قديم (ممكن يكون محفوظ في localStorage بالشكل القديم)
         const oldBtn = heading.querySelector('.edit-recipe-btn');
         if (oldBtn) oldBtn.remove();
 
@@ -53,18 +54,16 @@ function addEditButtons() {
         btn.href = 'edit.html?name=' + encodeURIComponent(recipeName) + '&cat=' + encodeURIComponent(category);
 
         btn.addEventListener('click', function() {
-            var ingredientItems = div.querySelectorAll('ul li');
-            var ingredientsText = Array.from(ingredientItems).map(function(li) {
-                return li.innerText.trim();
-            }).join('\n');
 
-            var stepItems = div.querySelectorAll('ol > li');
-            var stepsText = Array.from(stepItems).map(function(li) {
-                var clone = li.cloneNode(true);
-                var nested = clone.querySelectorAll('ul, ol');
-                nested.forEach(function(n){ n.remove(); });
-                return clone.innerText.trim();
-            }).join('\n');
+            // ✅ Ingredients
+            var ingredientsText = Array.from(div.querySelectorAll('ul li'))
+                .map(li => li.innerText.trim())
+                .join('\n');
+
+            // ✅ FIXED Steps (بدون حذف nested content)
+            var stepsText = Array.from(div.querySelectorAll('ol > li'))
+                .map(li => li.innerText.replace(/\s+/g, ' ').trim())
+                .join('\n');
 
             var imgEl = div.querySelector('img');
             var imgSrc = (imgEl && imgEl.src) ? imgEl.src : '';
@@ -82,13 +81,18 @@ function addEditButtons() {
     });
 }
 
-
+/* =========================
+   Globals
+========================= */
 let currentName     = '';
 let currentCategory = '';
 let currentRecipes  = [];
 let currentIndex    = -1;
 let newImgBase64    = '';
 
+/* =========================
+   Init Edit Page
+========================= */
 function initEditPage() {
     const params    = new URLSearchParams(window.location.search);
     currentName     = decodeURIComponent(params.get('name') || '');
@@ -99,27 +103,22 @@ function initEditPage() {
     }
 
     currentRecipes = JSON.parse(localStorage.getItem(STORAGE_KEYS[currentCategory]) || '[]');
-    currentIndex   = currentRecipes.findIndex(function(r){ return r.name === currentName; });
+    currentIndex   = currentRecipes.findIndex(r => r.name === currentName);
 
     if (currentIndex === -1) {
-        // وصفة أصلية — نجيب بياناتها من sessionStorage
-        const badge = document.getElementById('category-badge');
-        if (badge) badge.textContent = CATEGORY_LABELS[currentCategory] || currentCategory;
+        document.getElementById('category-badge').textContent = CATEGORY_LABELS[currentCategory];
         document.getElementById('recipe-name').value = currentName;
 
         var prefillRaw = sessionStorage.getItem('kcc_edit_prefill');
         if (prefillRaw) {
             try {
                 var prefill = JSON.parse(prefillRaw);
-                if (prefill.name === currentName && prefill.category === currentCategory) {
-                    document.getElementById('ingredients').value = prefill.ingredients || '';
-                    document.getElementById('steps').value       = prefill.steps       || '';
-                    if (prefill.imgSrc) {
-                        var wrap = document.getElementById('current-img-wrap');
-                        var img  = document.getElementById('current-img');
-                        if (wrap) wrap.style.display = 'flex';
-                        if (img)  img.src = prefill.imgSrc;
-                    }
+                document.getElementById('ingredients').value = prefill.ingredients || '';
+                document.getElementById('steps').value       = prefill.steps       || '';
+
+                if (prefill.imgSrc) {
+                    document.getElementById('current-img-wrap').style.display = 'flex';
+                    document.getElementById('current-img').src = prefill.imgSrc;
                 }
             } catch(e) {}
             sessionStorage.removeItem('kcc_edit_prefill');
@@ -128,125 +127,142 @@ function initEditPage() {
         loadRecipeIntoForm(currentRecipes[currentIndex]);
     }
 
-    /* image preview */
-    const fileInput = document.getElementById('recipe-image');
-    if (fileInput) {
-        fileInput.addEventListener('change', function () {
-            const file = this.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                newImgBase64 = e.target.result;
-                const preview = document.getElementById('img-preview');
-                if (preview) { preview.src = newImgBase64; preview.style.display = 'block'; }
-            };
-            reader.readAsDataURL(file);
-        });
-    }
+    // image preview
+    document.getElementById('recipe-image')?.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            newImgBase64 = e.target.result;
+            const preview = document.getElementById('img-preview');
+            preview.src = newImgBase64;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    });
 }
 
+/* =========================
+   Load Recipe
+========================= */
 function loadRecipeIntoForm(recipe) {
-    const badge = document.getElementById('category-badge');
-    if (badge) badge.textContent = CATEGORY_LABELS[recipe.category] || recipe.category;
-    document.getElementById('recipe-name').value  = recipe.name        || '';
-    document.getElementById('ingredients').value  = recipe.ingredients || '';
-    document.getElementById('steps').value        = recipe.steps       || '';
+    document.getElementById('category-badge').textContent = CATEGORY_LABELS[recipe.category];
+    document.getElementById('recipe-name').value  = recipe.name;
+    document.getElementById('ingredients').value  = recipe.ingredients;
+    document.getElementById('steps').value        = recipe.steps;
+
     if (recipe.imgBase64) {
-        const wrap = document.getElementById('current-img-wrap');
-        const img  = document.getElementById('current-img');
-        if (wrap) wrap.style.display = 'flex';
-        if (img)  img.src = recipe.imgBase64;
+        document.getElementById('current-img-wrap').style.display = 'flex';
+        document.getElementById('current-img').src = recipe.imgBase64;
     }
 }
 
+/* =========================
+   Save Edit
+========================= */
 function saveEdit() {
-    const newName        = document.getElementById('recipe-name').value.trim();
-    const newIngredients = document.getElementById('ingredients').value.trim();
-    const newSteps       = document.getElementById('steps').value.trim();
+    const newName  = document.getElementById('recipe-name').value.trim();
+    const newIng   = document.getElementById('ingredients').value.trim();
+    const newSteps = document.getElementById('steps').value.trim();
 
-    if (!newName)        return showToast('⚠️ Recipe name cannot be empty!');
-    if (!newIngredients) return showToast('⚠️ Ingredients cannot be empty!');
-    if (!newSteps)       return showToast('⚠️ Steps cannot be empty!');
-
-    if (newName !== currentName) {
-        const dup = currentRecipes.findIndex(function(r){ return r.name === newName; });
-        if (dup !== -1) return showToast('⚠️ Another recipe with this name already exists!');
+    if (!newName || !newIng || !newSteps) {
+        return showToast('⚠️ All fields are required!');
     }
 
     const oldRecipe  = currentRecipes[currentIndex] || {};
     const finalImage = newImgBase64 || oldRecipe.imgBase64 || '';
-    const updatedHTML = buildRecipeHTML(currentCategory, newName, finalImage, newIngredients, newSteps);
 
     const updatedRecipe = {
-        name: newName, html: updatedHTML,
-        ingredients: newIngredients, steps: newSteps,
-        imgBase64: finalImage, category: currentCategory
+        name: newName,
+        ingredients: newIng,
+        steps: newSteps,
+        imgBase64: finalImage,
+        category: currentCategory
     };
 
     if (currentIndex !== -1) {
         currentRecipes[currentIndex] = updatedRecipe;
+        localStorage.setItem(STORAGE_KEYS[currentCategory], JSON.stringify(currentRecipes));
     } else {
-        currentRecipes.push(updatedRecipe);
+        var key = 'kcc_override_' + currentCategory;
+        var overrides = JSON.parse(localStorage.getItem(key) || '{}');
+        overrides[currentName] = updatedRecipe;
+        localStorage.setItem(key, JSON.stringify(overrides));
     }
 
-    localStorage.setItem(STORAGE_KEYS[currentCategory], JSON.stringify(currentRecipes));
-    showToast('✅ Recipe updated successfully!');
-    setTimeout(function(){ window.location.href = PAGE_URLS[currentCategory]; }, 1500);
+    showToast('✅ Updated!');
+    setTimeout(() => window.location.href = PAGE_URLS[currentCategory], 1200);
 }
 
-function openModal()  { document.getElementById('confirm-modal').classList.add('active'); }
-function closeModal() { document.getElementById('confirm-modal').classList.remove('active'); }
+/* =========================
+   Apply Overrides (FIXED)
+========================= */
+function applyOverrides() {
+    var category = getCurrentCategory();
+    if (!category) return;
 
-function confirmDelete() {
-    if (currentIndex === -1) {
-        closeModal();
-        showToast('⚠️ Original recipes cannot be deleted.');
-        return;
-    }
-    currentRecipes.splice(currentIndex, 1);
-    localStorage.setItem(STORAGE_KEYS[currentCategory], JSON.stringify(currentRecipes));
-    closeModal();
-    showToast('🗑️ Recipe deleted!');
-    setTimeout(function(){ window.location.href = PAGE_URLS[currentCategory]; }, 1500);
+    var overrides = JSON.parse(localStorage.getItem('kcc_override_' + category) || '{}');
+
+    document.querySelectorAll('.user-recipe[data-name]').forEach(function(div) {
+        var name = div.getAttribute('data-name');
+        var updated = overrides[name];
+        if (!updated) return;
+
+        // ingredients
+        var ul = div.querySelector('ul');
+        if (ul) {
+            ul.innerHTML = updated.ingredients
+                .split('\n')
+                .filter(Boolean)
+                .map(x => `<li>${x}</li>`)
+                .join('');
+        }
+
+        // ✅ FIXED steps
+        var ol = div.querySelector('ol');
+        if (ol) {
+            ol.innerHTML = updated.steps
+                .split('\n')
+                .filter(Boolean)
+                .map(x => `<li>${x}</li>`)
+                .join('');
+        }
+
+        // name
+        div.setAttribute('data-name', updated.name);
+
+        // image
+        if (updated.imgBase64) {
+            var img = div.querySelector('img');
+            if (img) img.src = updated.imgBase64;
+        }
+    });
 }
 
-function showNotFound() {
-    const form = document.getElementById('edit-form');
-    const nf   = document.getElementById('not-found');
-    if (form) form.style.display = 'none';
-    if (nf)   nf.style.display  = 'block';
-}
-
-function buildRecipeHTML(category, name, imgBase64, ingredients, steps) {
-    const li = function(arr){ return arr.split('\n').filter(function(x){ return x.trim(); }).map(function(x){ return '<li>'+x.trim()+'</li>'; }).join(''); };
-    const heartBtn = '<button class="heart-btn"><i class="fa-regular fa-heart"></i></button>';
-    const editBtn  = '<a class="edit-recipe-btn" href="edit.html?name='+encodeURIComponent(name)+'&cat='+encodeURIComponent(category)+'" title="Edit '+name+'">✏️</a>';
-    const imgTag   = imgBase64 ? '<img src="'+imgBase64+'" alt="'+name+'">' : '';
-
-    if (category === 'desserts') return '<div class="Choco user-recipe" data-name="'+name+'" data-category="'+category+'"><h1><i>'+name+' 🍴 '+heartBtn+' '+editBtn+'</i></h1><div class="recipe-container">'+imgTag+'<div class="recipe"><h2><i>📝 Ingredients</i></h2><ul>'+li(ingredients)+'</ul><h2><i>➡️ Preparation Steps</i></h2><ol>'+li(steps)+'</ol></div></div></div>';
-    if (category === 'appetizer') return '<div id="user-'+safeid(name)+'" class="user-recipe" data-name="'+name+'" data-category="'+category+'"><h2>'+name+' 🍴 '+heartBtn+' '+editBtn+'</h2>'+imgTag+'<h3>📝 Ingredients</h3><ul>'+li(ingredients)+'</ul><h3>➡️ Preparation Steps</h3><ol>'+li(steps)+'</ol></div>';
-    if (category === 'main-course') return '<div class="Warak3nab user-recipe" data-name="'+name+'" data-category="'+category+'"><h1><i>'+name+' 🍴 '+heartBtn+' '+editBtn+'</i></h1>'+imgTag+'<h2><i>📝 Ingredients</i></h2><ul>'+li(ingredients)+'</ul><h2><i>➡️ Preparation Steps</i></h2><ol>'+li(steps)+'</ol></div>';
-    return '';
-}
-
-function safeid(name) { return name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''); }
-
+/* =========================
+   Utils
+========================= */
 function showToast(msg) {
     const toast = document.getElementById('edit-toast');
-    if (!toast) return;
     toast.textContent = msg;
     toast.style.display = 'block';
     clearTimeout(toast._timer);
-    toast._timer = setTimeout(function(){ toast.style.display = 'none'; }, 2500);
+    toast._timer = setTimeout(() => toast.style.display = 'none', 2500);
 }
 
-/* ============================================================
+function showNotFound() {
+    document.getElementById('edit-form').style.display = 'none';
+    document.getElementById('not-found').style.display = 'block';
+}
+
+/* =========================
    Init
-   ============================================================ */
+========================= */
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('edit-form')) {
-        initEditPage();   
+        initEditPage();
     } else {
+        applyOverrides();
         addEditButtons();
     }
 });
