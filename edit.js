@@ -55,12 +55,12 @@ function addEditButtons() {
 
         btn.addEventListener('click', function() {
 
-            // ✅ Ingredients
+            
             var ingredientsText = Array.from(div.querySelectorAll('ul li'))
                 .map(li => li.innerText.trim())
                 .join('\n');
 
-            // ✅ FIXED Steps (بدون حذف nested content)
+            
             var stepsText = Array.from(div.querySelectorAll('ol > li'))
                 .map(li => li.innerText.replace(/\s+/g, ' ').trim())
                 .join('\n');
@@ -218,7 +218,7 @@ function applyOverrides() {
                 .join('');
         }
 
-        // ✅ FIXED steps
+        // FIXED steps
         var ol = div.querySelector('ol');
         if (ol) {
             ol.innerHTML = updated.steps
