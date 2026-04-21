@@ -50,7 +50,7 @@ searchInput.addEventListener("keyup", function () {
         resultsBox.appendChild(item);
     });
 });
-// role (admin,user) => add button
+
 document.addEventListener("DOMContentLoaded", function () {
 
     let role = localStorage.getItem("userRole");
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         addBtn.style.display = "none";
     }
 });
-// hidden login & sign buttons and put logout
+
 function logout() {
     localStorage.clear();
     window.location.href = "index.html";
